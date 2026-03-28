@@ -231,14 +231,22 @@
   .tool-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
   }
-  .tool-card {
-    background: #fff; border-radius: var(--radius); padding: 24px;
-    box-shadow: var(--shadow); transition: all 0.2s; border: 1px solid transparent;
+  /* lihi feature grid (lihidev style) */
+  .feature-grid-lihi {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
   }
-  .tool-card:hover { border-color: var(--primary); box-shadow: var(--shadow-hover); }
-  .tool-card .t-icon { font-size: 28px; margin-bottom: 10px; }
-  .tool-card h3 { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
-  .tool-card p { font-size: 13px; color: var(--text-sub); line-height: 1.6; }
+  .fl-card {
+    background: #fff; border-radius: var(--radius); padding: 28px 24px;
+    box-shadow: var(--shadow); transition: all 0.2s; border: 1px solid var(--border);
+  }
+  .fl-card:hover { border-color: var(--primary); box-shadow: var(--shadow-hover); }
+  .fl-icon { height: 40px; margin-bottom: 16px; }
+  .fl-icon-fallback {
+    width: 40px; height: 40px; font-size: 24px;
+    align-items: center; justify-content: center; margin-bottom: 16px;
+  }
+  .fl-card h3 { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .fl-card p { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
 
   /* ==================== S4: SOCIAL PROOF ==================== */
   .proof { padding: 56px 0; background: #fff; text-align: center; }
@@ -516,36 +524,36 @@
       品牌網域搭配 lihi 行銷工具⋯⋯<strong>你可以做到更多</strong>
     </div>
 
-    <div class="tool-grid">
-      <div class="tool-card">
-        <div class="t-icon">🔀</div>
-        <h3>AB 自動分流</h3>
-        <p>同一連結自動測試不同頁面，找出最賺錢的版本</p>
+    <div class="feature-grid-lihi">
+      <div class="fl-card">
+        <img src="https://lihidev.com/lp-menu/img/icon-domain.png" alt="自訂網域" class="fl-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fl-icon-fallback" style="display:none">🌐</div>
+        <h3>自訂網域</h3>
+        <p>打造專屬品牌短網址，提升點擊信任度，讓品牌形象延伸到每一條連結。</p>
       </div>
-      <div class="tool-card">
-        <div class="t-icon">📊</div>
-        <h3>追蹤碼管理</h3>
-        <p>GA、Pixel、GTM 一次埋好，每個點擊都有數據</p>
+      <div class="fl-card">
+        <img src="https://lihidev.com/lp-menu/img/icon-ab.png" alt="自動分流" class="fl-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fl-icon-fallback" style="display:none">🔀</div>
+        <h3>自動分流</h3>
+        <p>流量自動分配至多個目標頁面，同一瀏覽器只見同一頁面，確保測試數據精準。</p>
       </div>
-      <div class="tool-card">
-        <div class="t-icon">🔄</div>
-        <h3>連結即時置換</h3>
-        <p>廣告投了不用重做，後台直接換目標網址</p>
+      <div class="fl-card">
+        <img src="https://lihidev.com/lp-menu/img/icon-tracking.png" alt="埋追蹤碼" class="fl-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fl-icon-fallback" style="display:none">📊</div>
+        <h3>埋追蹤碼</h3>
+        <p>一次設定 GA、Pixel、GTM 等追蹤碼，每個點擊都完整記錄，數據不再漏接。</p>
       </div>
-      <div class="tool-card">
-        <div class="t-icon">📦</div>
+      <div class="fl-card">
+        <img src="https://lihidev.com/lp-menu/img/icon-replace.png" alt="連結置換" class="fl-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fl-icon-fallback" style="display:none">🔄</div>
+        <h3>連結置換</h3>
+        <p>廣告已投放不必重做，直接從後台替換目標連結，素材文案完全不用動。</p>
+      </div>
+      <div class="fl-card">
+        <img src="https://lihidev.com/lp-menu/img/icon-utm.png" alt="自訂參數" class="fl-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fl-icon-fallback" style="display:none">🏷️</div>
+        <h3>自訂參數</h3>
+        <p>自訂 UTM 參數與追蹤變數，精確分析每個渠道的來源成效與 ROI。</p>
+      </div>
+      <div class="fl-card">
+        <img src="https://lihidev.com/lp-menu/img/icon-batch.png" alt="量產短網址" class="fl-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fl-icon-fallback" style="display:none">📦</div>
         <h3>量產短網址</h3>
-        <p>批次產出上千條品牌短網址，大規模投放必備</p>
-      </div>
-      <div class="tool-card">
-        <div class="t-icon">🏷️</div>
-        <h3>自訂 UTM 參數</h3>
-        <p>精確追蹤每個渠道的 ROI</p>
-      </div>
-      <div class="tool-card">
-        <div class="t-icon">📱</div>
-        <h3>簡訊行銷整合</h3>
-        <p>短網址 + 簡訊同一後台，KYC 審核一站搞定</p>
+        <p>批次匯入大量網址一次產出，適合大規模廣告投放與活動行銷，省時省力。</p>
       </div>
     </div>
   </div>
