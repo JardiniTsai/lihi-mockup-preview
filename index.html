@@ -194,6 +194,39 @@
     max-width: 800px; margin: 8px auto 36px;
   }
 
+  /* Pain inline (lihidev style) */
+  .pain-inline { text-align: center; padding: 0 0 32px; }
+  .pain-inline-label { color: var(--primary-dark); font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .pain-inline-title { font-size: 32px; font-weight: 900; color: var(--dark); margin-bottom: 8px; }
+  .pain-inline-sub { font-size: 15px; color: var(--text-sub); margin-bottom: 36px; }
+  .pain-inline-row {
+    display: flex; align-items: center; gap: 32px;
+    background: var(--bg); border-radius: 16px; padding: 32px;
+    margin-bottom: 32px;
+  }
+  .pain-inline-left { flex-shrink: 0; text-align: center; min-width: 180px; }
+  .pain-inline-cards { display: flex; gap: 20px; flex: 1; }
+  .pi-card { flex: 1; text-align: center; }
+  .pi-icon {
+    width: 56px; height: 56px; border-radius: 50%; background: #E8ECF0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin: 0 auto 12px;
+  }
+  .pi-card h4 { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 6px; line-height: 1.4; }
+  .pi-card p { font-size: 13px; color: var(--text-sub); line-height: 1.5; }
+
+  .pain-flow-inline {
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+  }
+  .pfi-step { text-align: center; }
+  .pfi-step img { display: block; margin: 0 auto 8px; }
+  .pfi-label {
+    display: inline-block; padding: 4px 16px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; background: var(--primary-light); color: var(--primary-dark);
+  }
+  .pfi-label.fail { background: #FEE2E2; color: #DC2626; }
+  .pfi-arrow { font-size: 20px; color: #ccc; margin-top: -20px; }
+
   /* Path B: feature cards */
   .tool-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
@@ -424,6 +457,62 @@
         <button>查詢網域</button>
       </div>
       <hr class="section-divider">
+    </div>
+
+    <!-- 痛點區塊 (lihidev.com style) -->
+    <div class="pain-inline">
+      <div class="pain-inline-label">為什麼選擇 lihi</div>
+      <h2 class="pain-inline-title">數位行銷的痛，我們很懂</h2>
+      <p class="pain-inline-sub">品牌電商天天面對的三大困境，lihi 讓你一次解決</p>
+      
+      <div class="pain-inline-row">
+        <div class="pain-inline-left">
+          <img src="https://lihidev.com/lp-menu/img/problem1.png" alt="廣告投放總是在猜" style="max-width:160px;">
+          <div style="font-size:18px;font-weight:900;color:var(--dark);margin-top:8px;">廣告投放<br>總是在猜</div>
+        </div>
+        <div class="pain-inline-cards">
+          <div class="pi-card">
+            <div class="pi-icon">📊</div>
+            <h4>廣告優化<br>無從下手</h4>
+            <p>改圖片還是文案？只能猜，浪費預算</p>
+          </div>
+          <div class="pi-card">
+            <div class="pi-icon">📢</div>
+            <h4>KOL 導流<br>難以量化</h4>
+            <p>找網紅代言，業績從哪來根本不清楚</p>
+          </div>
+          <div class="pi-card">
+            <div class="pi-icon">⏱️</div>
+            <h4>A/B 測試<br>曠日廢時</h4>
+            <p>測試週期太長，看不出哪個頁面真的比較好</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pain-flow-inline">
+        <div class="pfi-step">
+          <img src="https://lihidev.com/assets/images/question-sign.png" alt="困惑" style="height:64px;">
+          <span class="pfi-label">困惑</span>
+        </div>
+        <span class="pfi-arrow">→</span>
+        <div class="pfi-step">
+          <img src="https://lihidev.com/lp-menu/img/problem2.png" alt="假設錯誤" style="height:64px;">
+          <span class="pfi-label">假設錯誤</span>
+        </div>
+        <span class="pfi-arrow">→</span>
+        <div class="pfi-step">
+          <img src="https://lihidev.com/lp-menu/img/problem3.png" alt="繼續嘗試" style="height:64px;">
+          <span class="pfi-label">繼續嘗試</span>
+        </div>
+        <span class="pfi-arrow">→</span>
+        <div class="pfi-step">
+          <img src="https://lihidev.com/assets/images/flying-money.png" alt="還是失敗" style="height:64px;">
+          <span class="pfi-label fail">還是失敗</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="transition-text">
       品牌網域搭配 lihi 行銷工具⋯⋯<strong>你可以做到更多</strong>
     </div>
 
