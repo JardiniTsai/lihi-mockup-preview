@@ -127,11 +127,15 @@
   /* ==================== S2: Benefits ==================== */
   .benefits { padding: 56px 0; background: var(--dark); text-align: center; }
   .benefits h2 { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 36px; }
-  .benefits-list { max-width: 680px; margin: 0 auto; text-align: left; }
+  .benefits-list {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    text-align: left;
+  }
+  .benefits-list .wide { grid-column: span 2; }
   .benefit-item {
-    display: flex; align-items: flex-start; gap: 20px;
-    padding: 20px 24px; border-radius: var(--radius);
-    margin-bottom: 12px; background: rgba(255,255,255,0.05);
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 18px 20px; border-radius: var(--radius);
+    background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.08); transition: all 0.2s;
   }
   .benefit-item:hover { background: rgba(255,255,255,0.1); }
@@ -144,8 +148,8 @@
     display: flex; align-items: center; justify-content: center;
     font-family: 'Inter', sans-serif;
   }
-  .benefit-item h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-  .benefit-item p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+  .benefit-item h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .benefit-item p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.4; }
 
   /* ==================== S3: SOLUTION ==================== */
   .solution { padding: 56px 0; background: var(--bg); }
@@ -491,18 +495,18 @@
           <p>KYC 驗證 + 電信白名單審核，lihi 全程協助，合規發送不煩惱。</p>
         </div>
       </div>
-      <div class="benefit-item highlight">
+      <div class="benefit-item highlight wide">
         <span class="benefit-num">4</span>
         <div>
           <h3>附送 200 點簡訊點數 + lihi 方案 2 個月</h3>
-          <p>買網域即享簡訊點數與進階短網址方案，立刻開始行銷。</p>
+          <p>買網域即享簡訊點數與進階方案，立刻開始行銷。</p>
         </div>
       </div>
       <div class="benefit-item">
         <span class="benefit-num">5</span>
         <div>
           <h3>台灣公司，可開發票</h3>
-          <p>利害短網址有限公司，合法登記，企業採購可開立統編發票。</p>
+          <p>合法登記，企業可開統編發票。</p>
         </div>
       </div>
     </div>
