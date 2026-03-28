@@ -124,22 +124,28 @@
   }
   .hv-trust strong { color: var(--primary-dark); }
 
-  /* ==================== S2: PAIN POINTS ==================== */
-  .pain {
-    padding: 60px 0; background: var(--pain-bg); color: #fff; text-align: center;
+  /* ==================== S2: Benefits ==================== */
+  .benefits { padding: 56px 0; background: var(--dark); text-align: center; }
+  .benefits h2 { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 36px; }
+  .benefits-list { max-width: 680px; margin: 0 auto; text-align: left; }
+  .benefit-item {
+    display: flex; align-items: flex-start; gap: 20px;
+    padding: 20px 24px; border-radius: var(--radius);
+    margin-bottom: 12px; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08); transition: all 0.2s;
   }
-  .pain h2 { font-size: 36px; font-weight: 900; margin-bottom: 12px; }
-  .pain .sub { font-size: 18px; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
-  .pain-cards { display: flex; gap: 24px; }
-  .pain-card {
-    flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--radius); padding: 32px 24px; text-align: left;
-    transition: all 0.2s;
+  .benefit-item:hover { background: rgba(255,255,255,0.1); }
+  .benefit-item.highlight {
+    background: rgba(245,166,35,0.12); border-color: rgba(245,166,35,0.3);
   }
-  .pain-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
-  .pain-card .p-icon { font-size: 36px; margin-bottom: 16px; }
-  .pain-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
-  .pain-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+  .benefit-num {
+    flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+    background: var(--primary); color: #fff; font-size: 16px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif;
+  }
+  .benefit-item h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .benefit-item p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.5; }
 
   /* ==================== S3: SOLUTION ==================== */
   .solution { padding: 56px 0; background: var(--bg); }
@@ -459,26 +465,45 @@
   </div>
 </section>
 
-<!-- ==================== S2: PAIN POINTS ==================== -->
-<section class="pain">
+<!-- ==================== S2: 買網域五大好處 ==================== -->
+<section class="benefits">
   <div class="container">
-    <h2>這些問題，是不是很熟悉？</h2>
-    <p class="sub">你不是一個人，90% 的品牌都面對一樣的困境</p>
-    <div class="pain-cards">
-      <div class="pain-card">
-        <div class="p-icon">🔗</div>
-        <h3>還在用 bit.ly？</h3>
-        <p>大眾短網址已被詐騙濫用，客戶看到就不敢點。你的品牌信任度，從連結開始崩塌。</p>
+    <h2>lihi 買網域的五大好處</h2>
+    <div class="benefits-list">
+      <div class="benefit-item">
+        <span class="benefit-num">1</span>
+        <div>
+          <h3>無需工程師，無技術門檻</h3>
+          <p>DNS、SSL、轉址全自動設定，買完即上線，不需要任何技術背景。</p>
+        </div>
       </div>
-      <div class="pain-card">
-        <div class="p-icon">🌐</div>
-        <h3>網域買了，然後呢？</h3>
-        <p>90% 的人買了網域後就放在那。DNS 設定、SSL 憑證、轉址規則⋯⋯光想就頭痛。</p>
+      <div class="benefit-item">
+        <span class="benefit-num">2</span>
+        <div>
+          <h3>搭配最好用順手的短網址服務</h3>
+          <p>品牌網域直接變成短網址，AB 分流、追蹤碼、連結置換一站搞定。</p>
+        </div>
       </div>
-      <div class="pain-card">
-        <div class="p-icon">📊</div>
-        <h3>廣告錢花了，成效呢？</h3>
-        <p>投了 10 萬廣告費，不知道哪個素材有效、哪個 KOL 真的帶單。只能靠感覺猜。</p>
+      <div class="benefit-item">
+        <span class="benefit-num">3</span>
+        <div>
+          <h3>協助簡訊白名單申請，搭配發送系統</h3>
+          <p>KYC 驗證 + 電信白名單審核，lihi 全程協助，合規發送不煩惱。</p>
+        </div>
+      </div>
+      <div class="benefit-item highlight">
+        <span class="benefit-num">4</span>
+        <div>
+          <h3>附送 200 點簡訊點數 + lihi 方案 2 個月</h3>
+          <p>買網域即享簡訊點數與進階短網址方案，立刻開始行銷。</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-num">5</span>
+        <div>
+          <h3>台灣公司，可開發票</h3>
+          <p>利害短網址有限公司，合法登記，企業採購可開立統編發票。</p>
+        </div>
       </div>
     </div>
   </div>
