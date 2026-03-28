@@ -125,31 +125,21 @@
   .hv-trust strong { color: var(--primary-dark); }
 
   /* ==================== S2: Benefits ==================== */
-  .benefits { padding: 56px 0; background: var(--dark); text-align: center; }
-  .benefits h2 { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 36px; }
+  .benefits { padding: 48px 0; background: var(--dark); text-align: center; }
+  .benefits h2 { font-size: 32px; font-weight: 900; color: #fff; margin-bottom: 32px; }
   .benefits-list {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-    text-align: left;
+    display: flex; gap: 0; text-align: center;
   }
-  .benefits-list .wide { grid-column: span 2; }
   .benefit-item {
-    display: flex; align-items: flex-start; gap: 14px;
-    padding: 18px 20px; border-radius: var(--radius);
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08); transition: all 0.2s;
+    flex: 1; padding: 20px 16px;
+    border-right: 1px solid rgba(255,255,255,0.1);
   }
-  .benefit-item:hover { background: rgba(255,255,255,0.1); }
-  .benefit-item.highlight {
-    background: rgba(245,166,35,0.12); border-color: rgba(245,166,35,0.3);
+  .benefit-item:last-child { border-right: none; }
+  .benefit-item:hover .benefit-icon { transform: scale(1.1); }
+  .benefit-icon {
+    font-size: 28px; margin-bottom: 10px; transition: transform 0.2s;
   }
-  .benefit-num {
-    flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
-    background: var(--primary); color: #fff; font-size: 16px; font-weight: 900;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Inter', sans-serif;
-  }
-  .benefit-item h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
-  .benefit-item p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.4; }
+  .benefit-item h3 { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.4; }
 
   /* ==================== S3: SOLUTION ==================== */
   .solution { padding: 56px 0; background: var(--bg); }
@@ -475,39 +465,24 @@
     <h2>lihi 買網域的五大好處</h2>
     <div class="benefits-list">
       <div class="benefit-item">
-        <span class="benefit-num">1</span>
-        <div>
-          <h3>無需工程師，無技術門檻</h3>
-          <p>DNS、SSL、轉址全自動設定，買完即上線，不需要任何技術背景。</p>
-        </div>
+        <div class="benefit-icon">⚡</div>
+        <h3>無需工程師<br>無技術門檻</h3>
       </div>
       <div class="benefit-item">
-        <span class="benefit-num">2</span>
-        <div>
-          <h3>搭配最好用順手的短網址服務</h3>
-          <p>品牌網域直接變成短網址，AB 分流、追蹤碼、連結置換一站搞定。</p>
-        </div>
+        <div class="benefit-icon">🔗</div>
+        <h3>搭配最好用<br>短網址服務</h3>
       </div>
       <div class="benefit-item">
-        <span class="benefit-num">3</span>
-        <div>
-          <h3>協助簡訊白名單申請，搭配發送系統</h3>
-          <p>KYC 驗證 + 電信白名單審核，lihi 全程協助，合規發送不煩惱。</p>
-        </div>
-      </div>
-      <div class="benefit-item highlight wide">
-        <span class="benefit-num">4</span>
-        <div>
-          <h3>附送 200 點簡訊點數 + lihi 方案 2 個月</h3>
-          <p>買網域即享簡訊點數與進階方案，立刻開始行銷。</p>
-        </div>
+        <div class="benefit-icon">📱</div>
+        <h3>協助簡訊白名單<br>搭配發送系統</h3>
       </div>
       <div class="benefit-item">
-        <span class="benefit-num">5</span>
-        <div>
-          <h3>台灣公司，可開發票</h3>
-          <p>合法登記，企業可開統編發票。</p>
-        </div>
+        <div class="benefit-icon">🎁</div>
+        <h3>送 200 點簡訊<br>+ lihi 方案 2 個月</h3>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🧾</div>
+        <h3>台灣公司<br>可開發票</h3>
       </div>
     </div>
   </div>
