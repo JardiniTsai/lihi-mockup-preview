@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>lihi — 創立品牌，從擁有自己的網域開始 | 品牌短網址 & 行銷工具</title>
+<meta name="description" content="一鍵擁有品牌專屬網域與短網址。AB 分流測試、追蹤碼管理、連結置換——不需要任何技術背景，3 分鐘開始。">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans TC', 'Inter', sans-serif; color: #2C3E50; background: #fff; line-height: 1.6; }
+
+  /* === lihi 品牌色系 + 規範 === */
+  :root {
+    --primary: #2DD4BF;          /* lihi 薄荷綠 */
+    --primary-dark: #14B8A6;
+    --primary-light: #E0F5F2;
+    --cta: #F5A623;              /* 行動橘 CTA */
+    --cta-hover: #E09515;
+    --accent: #7ED321;           /* 成功綠 */
+    --dark: #000C35;             /* lihi 深藍 */
+    --text: #2C3E50;
+    --text-sub: #7F8C8D;
+    --bg: #FAFBFC;
+    --card-bg: #FFFFFF;
+    --border: #E8ECF0;
+    --pain-bg: #1B2838;
+    --shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+    --radius: 12px;
+    --btn-radius: 8px;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+  /* === NAV === */
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 40px; background: #fff; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100; max-width: 100%;
+  }
+  nav .logo img { height: 28px; }
+  nav .nav-links { display: flex; gap: 28px; list-style: none; }
+  nav .nav-links li { font-size: 14px; color: var(--text-sub); cursor: pointer; font-weight: 500; }
+  nav .nav-links li:hover { color: var(--text); }
+  nav .nav-cta {
+    background: var(--cta); color: #fff; border: none;
+    padding: 10px 24px; border-radius: var(--btn-radius); font-size: 14px;
+    font-weight: 700; cursor: pointer; font-family: inherit;
+  }
+  nav .nav-cta:hover { background: var(--cta-hover); }
+
+  /* ==================== S1: HERO ==================== */
+  .hero {
+    display: flex; align-items: center; padding: 80px 0;
+    min-height: 600px;
+    background: linear-gradient(160deg, #fff 55%, var(--primary-light) 100%);
+  }
+  .hero-left { flex: 6; padding-right: 56px; }
+  .hero-right { flex: 4; min-width: 380px; }
+  .hero h1 {
+    font-size: 48px; font-weight: 900; line-height: 1.25; color: var(--dark);
+    margin-bottom: 16px;
+  }
+  .hero .sub {
+    font-size: 20px; color: var(--text-sub); line-height: 1.6;
+    margin-bottom: 32px; max-width: 500px;
+  }
+  .hero .search-cta {
+    display: flex; border: 2px solid var(--cta); border-radius: 10px;
+    overflow: hidden; max-width: 460px; margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(245,166,35,0.2);
+  }
+  .hero .search-cta input {
+    flex: 1; padding: 16px 20px; border: none; font-size: 16px; outline: none;
+    font-family: 'JetBrains Mono', monospace; color: var(--text);
+  }
+  .hero .search-cta input::placeholder { color: #bbb; font-family: 'Noto Sans TC', sans-serif; }
+  .hero .search-cta button {
+    background: var(--cta); color: #fff; border: none; padding: 16px 28px;
+    font-size: 16px; font-weight: 700; cursor: pointer; white-space: nowrap;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero .trust { font-size: 14px; color: var(--text-sub); }
+  .hero .trust strong { color: var(--primary-dark); }
+
+  /* Hero visual */
+  .hero-visual {
+    background: #fff; border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,12,53,0.1); padding: 24px; overflow: hidden;
+  }
+  .hv-browser { display: flex; align-items: center; gap: 6px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .hv-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .hv-dot.r { background: #FF5F57; } .hv-dot.y { background: #FFBD2E; } .hv-dot.g { background: #28C840; }
+  .hv-urlbar { flex: 1; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 5px 12px; font-size: 12px; color: #999; margin-left: 10px; font-family: 'JetBrains Mono', monospace; }
+  .hv-preview {
+    padding: 16px; background: var(--primary-light); border-radius: 10px; margin-bottom: 12px;
+    text-align: center;
+  }
+  .hv-preview .brand-url {
+    font-family: 'JetBrains Mono', monospace; font-size: 18px;
+    font-weight: 700; color: var(--dark); margin-bottom: 4px;
+  }
+  .hv-preview .brand-url span { color: var(--primary-dark); }
+  .hv-preview .label { font-size: 12px; color: var(--text-sub); }
+  .hv-stats { display: flex; gap: 12px; }
+  .hv-stat {
+    flex: 1; background: var(--bg); border-radius: 8px; padding: 12px; text-align: center;
+    border: 1px solid var(--border);
+  }
+  .hv-stat .val { font-size: 20px; font-weight: 900; color: var(--cta); font-family: 'Inter', sans-serif; }
+  .hv-stat .lbl { font-size: 11px; color: var(--text-sub); }
+
+  /* ==================== S2: PAIN POINTS ==================== */
+  .pain {
+    padding: 80px 0; background: var(--pain-bg); color: #fff; text-align: center;
+  }
+  .pain h2 { font-size: 36px; font-weight: 900; margin-bottom: 12px; }
+  .pain .sub { font-size: 18px; color: rgba(255,255,255,0.5); margin-bottom: 48px; }
+  .pain-cards { display: flex; gap: 24px; }
+  .pain-card {
+    flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius); padding: 32px 24px; text-align: left;
+    transition: all 0.2s;
+  }
+  .pain-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+  .pain-card .p-icon { font-size: 36px; margin-bottom: 16px; }
+  .pain-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .pain-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+  /* ==================== S3: SOLUTION ==================== */
+  .solution { padding: 80px 0; background: var(--bg); }
+  .solution-header { text-align: center; margin-bottom: 56px; }
+  .solution-header .label { color: var(--primary-dark); font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .solution-header h2 { font-size: 36px; font-weight: 900; color: var(--dark); margin-bottom: 12px; }
+  .solution-header p { font-size: 16px; color: var(--text-sub); }
+
+  /* Path A: 3 steps */
+  .steps-row { display: flex; gap: 24px; margin-bottom: 56px; }
+  .step-card {
+    flex: 1; background: #fff; border-radius: var(--radius); padding: 32px 24px;
+    box-shadow: var(--shadow); text-align: center; position: relative;
+  }
+  .step-card .s-num {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--primary); color: #fff; font-size: 18px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px; font-family: 'Inter', sans-serif;
+  }
+  .step-card .s-icon { font-size: 36px; margin-bottom: 12px; }
+  .step-card h3 { font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .step-card p { font-size: 14px; color: var(--text-sub); }
+  .step-card .url-demo {
+    margin-top: 12px; font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; color: var(--primary-dark); background: var(--primary-light);
+    padding: 6px 12px; border-radius: 6px; display: inline-block;
+  }
+
+  /* Transition text */
+  .transition-text {
+    text-align: center; padding: 32px 0; font-size: 18px; color: var(--text-sub);
+  }
+  .transition-text strong { color: var(--dark); }
+
+  /* Path B: feature cards */
+  .tool-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .tool-card {
+    background: #fff; border-radius: var(--radius); padding: 24px;
+    box-shadow: var(--shadow); transition: all 0.2s; border: 1px solid transparent;
+  }
+  .tool-card:hover { border-color: var(--primary); box-shadow: var(--shadow-hover); }
+  .tool-card .t-icon { font-size: 28px; margin-bottom: 10px; }
+  .tool-card h3 { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .tool-card p { font-size: 13px; color: var(--text-sub); line-height: 1.6; }
+
+  /* ==================== S4: SOCIAL PROOF ==================== */
+  .proof { padding: 80px 0; background: #fff; text-align: center; }
+  .proof h2 { font-size: 36px; font-weight: 900; color: var(--dark); margin-bottom: 48px; }
+  .proof-stats { display: flex; gap: 48px; justify-content: center; margin-bottom: 48px; }
+  .proof-stat { text-align: center; }
+  .proof-stat .num { font-size: 48px; font-weight: 900; color: var(--cta); font-family: 'Inter', sans-serif; }
+  .proof-stat .desc { font-size: 15px; color: var(--text-sub); margin-top: 4px; }
+  .proof-reviews { display: flex; gap: 20px; justify-content: center; margin-bottom: 48px; }
+  .proof-reviews img {
+    flex: 1; max-width: 280px; border-radius: 10px;
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+  }
+  .proof-brands {
+    display: flex; justify-content: center; align-items: center;
+    gap: 20px; flex-wrap: wrap;
+  }
+  .proof-brands img { height: 32px; opacity: 0.45; filter: grayscale(30%); transition: all 0.2s; }
+  .proof-brands img:hover { opacity: 1; filter: none; }
+
+  /* ==================== S5: PRICING ==================== */
+  .pricing { padding: 80px 0; background: var(--bg); text-align: center; }
+  .pricing h2 { font-size: 36px; font-weight: 900; color: var(--dark); margin-bottom: 12px; }
+  .pricing .sub { font-size: 16px; color: var(--text-sub); margin-bottom: 48px; }
+  .pricing-grid { display: flex; gap: 24px; justify-content: center; }
+  .price-card {
+    flex: 1; max-width: 340px; background: #fff; border-radius: var(--radius);
+    padding: 32px 24px; box-shadow: var(--shadow); text-align: left;
+    border: 2px solid transparent; position: relative;
+  }
+  .price-card.popular {
+    border-color: var(--cta); box-shadow: 0 4px 24px rgba(245,166,35,0.2);
+    transform: scale(1.03);
+  }
+  .price-card.popular .pop-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--cta); color: #fff; font-size: 12px; font-weight: 700;
+    padding: 4px 16px; border-radius: 20px;
+  }
+  .price-card .plan-name { font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+  .price-card .plan-desc { font-size: 13px; color: var(--text-sub); margin-bottom: 20px; }
+  .price-card .feature-list { list-style: none; margin-bottom: 24px; }
+  .price-card .feature-list li {
+    font-size: 14px; padding: 8px 0; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .price-card .feature-list li .yes { color: var(--accent); }
+  .price-card .feature-list li .no { color: #ddd; }
+  .price-card .plan-cta {
+    width: 100%; padding: 12px; border-radius: var(--btn-radius);
+    font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit;
+    border: none;
+  }
+  .price-card .plan-cta.primary { background: var(--cta); color: #fff; }
+  .price-card .plan-cta.secondary {
+    background: transparent; border: 2px solid var(--primary); color: var(--primary-dark);
+  }
+
+  /* ==================== S6: FAQ ==================== */
+  .faq { padding: 80px 0; background: #fff; }
+  .faq h2 { font-size: 36px; font-weight: 900; color: var(--dark); text-align: center; margin-bottom: 48px; }
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item {
+    border-bottom: 1px solid var(--border); padding: 20px 0;
+  }
+  .faq-item .faq-q {
+    font-size: 16px; font-weight: 600; color: var(--dark); cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .faq-item .faq-q .arrow { color: var(--primary); font-size: 18px; transition: transform 0.2s; }
+  .faq-item .faq-a {
+    font-size: 14px; color: var(--text-sub); line-height: 1.7;
+    margin-top: 12px; padding-left: 4px;
+  }
+
+  /* ==================== S7: FINAL CTA ==================== */
+  .final-cta {
+    padding: 80px 0; text-align: center;
+    background: linear-gradient(135deg, var(--dark) 0%, #0A1628 100%); color: #fff;
+  }
+  .final-cta h2 { font-size: 40px; font-weight: 900; margin-bottom: 12px; }
+  .final-cta .sub { font-size: 18px; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
+  .final-cta .btn-final {
+    background: var(--cta); color: #fff; border: none;
+    padding: 18px 48px; border-radius: var(--btn-radius); font-size: 18px;
+    font-weight: 700; cursor: pointer; font-family: inherit;
+    box-shadow: 0 4px 20px rgba(245,166,35,0.4);
+  }
+  .final-cta .note { font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 16px; }
+
+  /* FOOTER */
+  footer {
+    padding: 32px 40px; background: #080E1C; color: rgba(255,255,255,0.3);
+    font-size: 12px;
+  }
+  .footer-inner {
+    max-width: 1140px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo"><img src="https://lihidev.com/assets/images/lihi-logo-primary.png" alt="lihi.io"></div>
+  <ul class="nav-links">
+    <li>品牌網域 ▾</li>
+    <li>行銷工具 ▾</li>
+    <li>方案價格</li>
+    <li>行銷資源 ▾</li>
+    <li>關於我們</li>
+  </ul>
+  <button class="nav-cta">免費開始</button>
+</nav>
+
+<!-- ==================== S1: HERO ==================== -->
+<section class="hero">
+  <div class="container" style="display:flex;align-items:center;">
+    <div class="hero-left">
+      <h1>創立品牌<br>從擁有自己的<br>網域開始</h1>
+      <p class="sub">買了網域不知道怎麼用？一鍵綁定，立即擁有品牌短網址、流量追蹤、AB 測試——不需要任何技術背景</p>
+      <div class="search-cta">
+        <input type="text" placeholder="輸入你的品牌名稱，查詢可用網域">
+        <button>查詢網域</button>
+      </div>
+      <p class="trust">已有 <strong>5,000+</strong> 品牌使用 lihi 建立品牌網域</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-visual">
+        <div class="hv-browser">
+          <span class="hv-dot r"></span><span class="hv-dot y"></span><span class="hv-dot g"></span>
+          <div class="hv-urlbar">lihi.io/dashboard</div>
+        </div>
+        <div class="hv-preview">
+          <div class="label">你的品牌短網址</div>
+          <div class="brand-url"><span>yourbrand.com</span>/新品上市</div>
+        </div>
+        <div class="hv-stats">
+          <div class="hv-stat"><div class="val">+25%</div><div class="lbl">點擊率提升</div></div>
+          <div class="hv-stat"><div class="val">35%</div><div class="lbl">廣告費節省</div></div>
+          <div class="hv-stat"><div class="val">2×</div><div class="lbl">測試效率</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== S2: PAIN POINTS ==================== -->
+<section class="pain">
+  <div class="container">
+    <h2>這些問題，是不是很熟悉？</h2>
+    <p class="sub">你不是一個人，90% 的品牌都面對一樣的困境</p>
+    <div class="pain-cards">
+      <div class="pain-card">
+        <div class="p-icon">🔗</div>
+        <h3>還在用 bit.ly？</h3>
+        <p>大眾短網址已被詐騙濫用，客戶看到就不敢點。你的品牌信任度，從連結開始崩塌。</p>
+      </div>
+      <div class="pain-card">
+        <div class="p-icon">🌐</div>
+        <h3>網域買了，然後呢？</h3>
+        <p>90% 的人買了網域後就放在那。DNS 設定、SSL 憑證、轉址規則⋯⋯光想就頭痛。</p>
+      </div>
+      <div class="pain-card">
+        <div class="p-icon">📊</div>
+        <h3>廣告錢花了，成效呢？</h3>
+        <p>投了 10 萬廣告費，不知道哪個素材有效、哪個 KOL 真的帶單。只能靠感覺猜。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== S3: SOLUTION ==================== -->
+<section class="solution">
+  <div class="container">
+    <div class="solution-header">
+      <div class="label">解決方案</div>
+      <h2>3 步驟，品牌網域立刻上線</h2>
+      <p>不用懂技術，不用找工程師，自己就能搞定</p>
+    </div>
+    <div class="steps-row">
+      <div class="step-card">
+        <div class="s-num">1</div>
+        <div class="s-icon">🔍</div>
+        <h3>搜尋</h3>
+        <p>輸入你想要的品牌名稱，查看可用網域</p>
+        <div class="url-demo">yourbrand.com ✅</div>
+      </div>
+      <div class="step-card">
+        <div class="s-num">2</div>
+        <div class="s-icon">⚡</div>
+        <h3>綁定</h3>
+        <p>一鍵設定，DNS、SSL 全部自動搞定</p>
+        <div class="url-demo">✓ 設定完成</div>
+      </div>
+      <div class="step-card">
+        <div class="s-num">3</div>
+        <div class="s-icon">🚀</div>
+        <h3>開始使用</h3>
+        <p>你的每一條連結，都是品牌的延伸</p>
+        <div class="url-demo">yourbrand.com/活動名稱</div>
+      </div>
+    </div>
+
+    <div class="transition-text">
+      當你有了品牌網域⋯⋯<strong>你可以做到更多</strong>
+    </div>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="t-icon">🔀</div>
+        <h3>AB 自動分流</h3>
+        <p>同一連結自動測試不同頁面，找出最賺錢的版本</p>
+      </div>
+      <div class="tool-card">
+        <div class="t-icon">📊</div>
+        <h3>追蹤碼管理</h3>
+        <p>GA、Pixel、GTM 一次埋好，每個點擊都有數據</p>
+      </div>
+      <div class="tool-card">
+        <div class="t-icon">🔄</div>
+        <h3>連結即時置換</h3>
+        <p>廣告投了不用重做，後台直接換目標網址</p>
+      </div>
+      <div class="tool-card">
+        <div class="t-icon">📦</div>
+        <h3>量產短網址</h3>
+        <p>批次產出上千條品牌短網址，大規模投放必備</p>
+      </div>
+      <div class="tool-card">
+        <div class="t-icon">🏷️</div>
+        <h3>自訂 UTM 參數</h3>
+        <p>精確追蹤每個渠道的 ROI</p>
+      </div>
+      <div class="tool-card">
+        <div class="t-icon">📱</div>
+        <h3>簡訊行銷整合</h3>
+        <p>短網址 + 簡訊同一後台，KYC 審核一站搞定</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== S4: SOCIAL PROOF ==================== -->
+<section class="proof">
+  <div class="container">
+    <h2>數據不說謊</h2>
+    <div class="proof-stats">
+      <div class="proof-stat"><div class="num">+25%</div><div class="desc">品牌短網址平均點擊率提升</div></div>
+      <div class="proof-stat"><div class="num">35%</div><div class="desc">平均節省廣告費</div></div>
+      <div class="proof-stat"><div class="num">2×</div><div class="desc">AB 測試效率提升</div></div>
+    </div>
+    <div class="proof-reviews">
+      <img src="https://lihidev.com/lp-menu/img/review1.png" alt="品牌主回饋 1">
+      <img src="https://lihidev.com/lp-menu/img/review2.png" alt="品牌主回饋 2">
+      <img src="https://lihidev.com/lp-menu/img/review3.png" alt="品牌主回饋 3">
+    </div>
+    <div class="proof-brands">
+      <img src="https://lihidev.com/lp-menu/img/brand1.png" alt="品牌">
+      <img src="https://lihidev.com/lp-menu/img/brand2.png" alt="品牌">
+      <img src="https://lihidev.com/lp-menu/img/brand3.png" alt="品牌">
+      <img src="https://lihidev.com/lp-menu/img/brand4.png" alt="品牌">
+      <img src="https://lihidev.com/lp-menu/img/brand5.png" alt="品牌">
+      <img src="https://lihidev.com/lp-menu/img/brand6.png" alt="品牌">
+      <img src="https://lihidev.com/lp-menu/img/brand7.png" alt="品牌">
+      <img src="https://lihidev.com/lp-menu/img/brand8.png" alt="品牌">
+      <img src="https://lihidev.com/lp-menu/img/brand9.png" alt="品牌">
+      <img src="https://lihidev.com/lp-menu/img/brand10.png" alt="品牌">
+      <img src="https://lihidev.com/lp-menu/img/brand11.png" alt="品牌">
+    </div>
+  </div>
+</section>
+
+<!-- ==================== S5: PRICING ==================== -->
+<section class="pricing">
+  <div class="container">
+    <h2>選擇適合你的方案</h2>
+    <p class="sub">從免費開始，隨品牌成長升級</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="plan-name">入門方案</div>
+        <div class="plan-desc">品牌網域起步</div>
+        <ul class="feature-list">
+          <li><span class="yes">✓</span> 自訂品牌網域</li>
+          <li><span class="yes">✓</span> 品牌短網址（基本額度）</li>
+          <li><span class="no">—</span> AB 分流測試</li>
+          <li><span class="no">—</span> 追蹤碼管理</li>
+          <li><span class="no">—</span> 連結置換</li>
+          <li><span class="no">—</span> 量產短網址</li>
+          <li><span class="no">—</span> 簡訊行銷</li>
+        </ul>
+        <button class="plan-cta secondary">免費開始</button>
+      </div>
+      <div class="price-card popular">
+        <span class="pop-badge">最受歡迎</span>
+        <div class="plan-name">專業方案</div>
+        <div class="plan-desc">完整行銷工具</div>
+        <ul class="feature-list">
+          <li><span class="yes">✓</span> 自訂品牌網域</li>
+          <li><span class="yes">✓</span> 品牌短網址（進階額度）</li>
+          <li><span class="yes">✓</span> AB 分流測試</li>
+          <li><span class="yes">✓</span> 追蹤碼管理</li>
+          <li><span class="yes">✓</span> 連結置換</li>
+          <li><span class="no">—</span> 量產短網址</li>
+          <li><span class="no">—</span> 簡訊行銷</li>
+        </ul>
+        <button class="plan-cta primary">立即升級</button>
+      </div>
+      <div class="price-card">
+        <div class="plan-name">企業方案</div>
+        <div class="plan-desc">無限擴展</div>
+        <ul class="feature-list">
+          <li><span class="yes">✓</span> 自訂品牌網域</li>
+          <li><span class="yes">✓</span> 品牌短網址（無限）</li>
+          <li><span class="yes">✓</span> AB 分流測試</li>
+          <li><span class="yes">✓</span> 追蹤碼管理</li>
+          <li><span class="yes">✓</span> 連結置換</li>
+          <li><span class="yes">✓</span> 量產短網址</li>
+          <li><span class="yes">✓</span> 簡訊行銷</li>
+        </ul>
+        <button class="plan-cta secondary">聯繫我們</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== S6: FAQ ==================== -->
+<section class="faq">
+  <div class="container">
+    <h2>常見問題</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">我已經在其他地方買了網域，可以轉過來嗎？<span class="arrow">＋</span></div>
+        <div class="faq-a">可以！lihi 支援網域轉入，你可以把已有的網域綁定到 lihi 後台，一樣享受品牌短網址和所有行銷工具。設定過程我們會全程引導。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">不會技術也能用嗎？<span class="arrow">＋</span></div>
+        <div class="faq-a">完全可以！lihi 自動處理 DNS、SSL 等技術設定，你只需要搜尋喜歡的網域名稱、點擊購買，其他全部自動完成。不需要任何程式背景。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">跟 bit.ly / reurl 有什麼不同？<span class="arrow">＋</span></div>
+        <div class="faq-a">最大差異是「品牌網域」。bit.ly / reurl 使用公共網域，所有人共用同一個短網址域名。lihi 讓你用自己的品牌網域建立短網址，提升信任度和點擊率，同時內建 AB 分流、追蹤碼管理等進階行銷工具。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">可以免費試用嗎？<span class="arrow">＋</span></div>
+        <div class="faq-a">可以！入門方案完全免費，你可以先體驗品牌網域和基本短網址功能。覺得好用再升級專業方案。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">簡訊行銷需要 KYC 嗎？<span class="arrow">＋</span></div>
+        <div class="faq-a">依照 NCC 規範，商業簡訊發送方須完成實名驗證（KYC）。lihi 站內提供完整 KYC 申請流程，審核通過即可合規發送。你不用自己研究法規，我們幫你搞定。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">如果我想取消怎麼辦？<span class="arrow">＋</span></div>
+        <div class="faq-a">隨時可以取消，沒有綁約。取消後你的網域和短網址仍然有效至付費期限結束，不會立即失效。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== S7: FINAL CTA ==================== -->
+<section class="final-cta">
+  <div class="container">
+    <h2>你的品牌，值得一個專屬網域</h2>
+    <p class="sub">3 分鐘設定，今天就開始</p>
+    <button class="btn-final">立即查詢可用網域</button>
+    <p class="note">免費開始，不需信用卡</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span>© 2018-2026 利害短網址有限公司 82908327</span>
+    <div class="footer-links">
+      <a href="#">服務條款</a>
+      <a href="#">隱私權政策</a>
+      <a href="#">檢舉網址</a>
+      <a href="#">service@lihi.io</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
