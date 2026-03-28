@@ -280,15 +280,16 @@
   .proof-stat .num { font-size: 48px; font-weight: 900; color: var(--cta); font-family: 'Inter', sans-serif; }
   .proof-stat .desc { font-size: 15px; color: var(--text-sub); margin-top: 4px; }
   /* FB screenshot - enlarged with side callout */
-  .fb-data-row { display: flex; gap: 32px; align-items: center; max-width: 960px; margin: 0 auto 32px; }
+  .fb-data-row { display: flex; gap: 32px; align-items: center; max-width: 100%; margin: 0 auto 32px; }
   .fb-screenshot {
-    flex: 3; border-radius: var(--radius);
+    flex: 5; border-radius: var(--radius);
     overflow: hidden; box-shadow: var(--shadow-hover); border: 1px solid var(--border);
-    background: #fff;
+    background: #fff; min-width: 0;
   }
   .fb-screenshot img { width: 100%; display: block; }
   .fb-callout {
-    flex: 2; background: var(--primary-light); border-radius: var(--radius);
+    flex: 2; flex-shrink: 0; min-width: 240px;
+    background: var(--primary-light); border-radius: var(--radius);
     padding: 28px 24px; text-align: center;
   }
   .fb-callout .big-num { font-size: 56px; font-weight: 900; color: var(--cta); font-family: 'Inter', sans-serif; line-height: 1; }
