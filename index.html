@@ -173,6 +173,21 @@
   .transition-text {
     text-align: center; padding: 32px 0; font-size: 18px; color: var(--text-sub);
   }
+  .mid-search {
+    display: flex; max-width: 440px; margin: 0 auto 20px;
+    border: 2px solid var(--cta); border-radius: 10px; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(245,166,35,0.2);
+  }
+  .mid-search input {
+    flex: 1; padding: 14px 18px; border: none; font-size: 15px; outline: none;
+    font-family: 'Noto Sans TC', sans-serif; color: var(--text);
+  }
+  .mid-search input::placeholder { color: #bbb; }
+  .mid-search button {
+    background: var(--cta); color: #fff; border: none; padding: 14px 24px;
+    font-size: 15px; font-weight: 700; cursor: pointer; white-space: nowrap;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
   .transition-text strong { color: var(--dark); }
 
   /* Path B: feature cards */
@@ -400,6 +415,10 @@
     </div>
 
     <div class="transition-text">
+      <div class="mid-search">
+        <input type="text" placeholder="輸入你的品牌名稱，查詢可用" readonly>
+        <button>查詢網域</button>
+      </div>
       品牌網域搭配 lihi 行銷工具⋯⋯<strong>你可以做到更多</strong>
     </div>
 
