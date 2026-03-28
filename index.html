@@ -276,6 +276,43 @@
   .proof-stat { text-align: center; }
   .proof-stat .num { font-size: 48px; font-weight: 900; color: var(--cta); font-family: 'Inter', sans-serif; }
   .proof-stat .desc { font-size: 15px; color: var(--text-sub); margin-top: 4px; }
+  /* Ad compare table */
+  .ad-compare {
+    max-width: 900px; margin: 0 auto 40px; background: #fff;
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    overflow: hidden; border: 1px solid var(--border);
+  }
+  .ad-compare-title {
+    padding: 16px 24px; font-size: 15px; font-weight: 700; color: var(--dark);
+    background: var(--bg); border-bottom: 1px solid var(--border); text-align: left;
+  }
+  .ad-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .ad-table th {
+    padding: 12px 14px; background: #F8F9FA; color: var(--text-sub);
+    font-weight: 600; text-align: center; border-bottom: 2px solid var(--border);
+    font-size: 12px;
+  }
+  .ad-table td {
+    padding: 14px 14px; text-align: center; border-bottom: 1px solid var(--border);
+    color: var(--text); vertical-align: middle;
+  }
+  .ad-table .ad-name { text-align: left; font-weight: 600; }
+  .ad-icon { margin-right: 6px; }
+  .td-sub { font-size: 11px; color: #aaa; display: block; }
+  .highlight-col { background: rgba(245,166,35,0.08); color: var(--cta); font-weight: 700; }
+  .highlight-cell {
+    font-weight: 900; font-size: 16px; font-family: 'Inter', sans-serif;
+    border-left: 2px solid var(--cta); border-right: 2px solid var(--cta);
+  }
+  .highlight-cell.bad-val { color: #999; }
+  .highlight-cell.good-val { color: var(--accent); background: rgba(126,211,33,0.08); }
+  .winner-row { background: rgba(126,211,33,0.04); }
+  .ad-compare-note {
+    padding: 14px 24px; font-size: 14px; color: var(--text);
+    background: var(--primary-light); text-align: center;
+  }
+  .ad-compare-note strong { color: var(--primary-dark); }
+
   .proof-reviews { display: flex; gap: 20px; justify-content: center; margin-bottom: 32px; }
   .proof-reviews img {
     flex: 1; max-width: 280px; border-radius: 10px;
@@ -620,6 +657,45 @@
       <div class="proof-stat"><div class="num">35%</div><div class="desc">平均節省廣告費</div></div>
       <div class="proof-stat"><div class="num">2×</div><div class="desc">AB 測試效率提升</div></div>
     </div>
+    <!-- 廣告數據對比表 -->
+    <div class="ad-compare">
+      <div class="ad-compare-title">實際廣告數據對比</div>
+      <table class="ad-table">
+        <thead>
+          <tr>
+            <th>廣告名稱</th>
+            <th>成果</th>
+            <th>每次成果的成本</th>
+            <th>曝光次數</th>
+            <th>觸及人數</th>
+            <th class="highlight-col">連外 CTR（點擊率）</th>
+            <th>連外點擊次數</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ad-name"><span class="ad-icon bad">⚠️</span> 廣告A — bit.ly 短網址</td>
+            <td>108<br><span class="td-sub">連結點擊情形</span></td>
+            <td>NT$4<br><span class="td-sub">每次連結點擊</span></td>
+            <td>3,357</td>
+            <td>2,986</td>
+            <td class="highlight-cell bad-val">3.22%</td>
+            <td>108</td>
+          </tr>
+          <tr class="winner-row">
+            <td class="ad-name"><span class="ad-icon good">⭐</span> 廣告B — 自訂品牌網址</td>
+            <td>146<br><span class="td-sub">連結點擊情形</span></td>
+            <td>NT$3<br><span class="td-sub">每次連結點擊</span></td>
+            <td>3,418</td>
+            <td>3,067</td>
+            <td class="highlight-cell good-val">4.27%</td>
+            <td>146</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ad-compare-note">📈 使用品牌自訂網址，CTR 提升 <strong>32.6%</strong>，每次點擊成本降低 <strong>25%</strong></div>
+    </div>
+
     <div class="proof-reviews">
       <img src="https://lihidev.com/lp-menu/img/review1.png" alt="品牌主回饋 1">
       <img src="https://lihidev.com/lp-menu/img/review2.png" alt="品牌主回饋 2">
