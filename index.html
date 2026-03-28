@@ -248,6 +248,27 @@
   .fl-card h3 { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
   .fl-card p { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
 
+  /* SMS section */
+  .sms { padding: 56px 0; background: #F0F5F0; text-align: center; }
+  .sms-label {
+    display: inline-block; background: var(--primary); color: #fff;
+    font-size: 13px; font-weight: 700; padding: 4px 16px; border-radius: 20px; margin-bottom: 16px;
+  }
+  .sms-title { font-size: 36px; font-weight: 900; color: var(--dark); line-height: 1.35; margin-bottom: 16px; }
+  .sms-sub { font-size: 15px; color: var(--text-sub); max-width: 600px; margin: 0 auto 40px; line-height: 1.7; }
+  .sms-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .sms-card {
+    background: #fff; border-radius: var(--radius); padding: 28px 20px; text-align: left;
+    box-shadow: var(--shadow);
+  }
+  .sms-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 16px;
+  }
+  .sms-card h3 { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .sms-card p { font-size: 13px; color: var(--text-sub); line-height: 1.65; }
+
   /* ==================== S4: SOCIAL PROOF ==================== */
   .proof { padding: 56px 0; background: #fff; text-align: center; }
   .proof h2 { font-size: 36px; font-weight: 900; color: var(--dark); margin-bottom: 32px; }
@@ -554,6 +575,37 @@
         <img src="https://lihidev.com/lp-menu/img/icon-batch.png" alt="量產短網址" class="fl-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fl-icon-fallback" style="display:none">📦</div>
         <h3>量產短網址</h3>
         <p>批次匯入大量網址一次產出，適合大規模廣告投放與活動行銷，省時省力。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SMS SECTION ==================== -->
+<section class="sms">
+  <div class="container">
+    <div class="sms-label">簡訊行銷</div>
+    <h2 class="sms-title">短網址 × 簡訊行銷<br>合規一站完成</h2>
+    <p class="sms-sub">lihiSMS 整合於同一後台，從 KYC 身份驗證到網域白名單申請，lihi 幫你處理所有合規流程，專心做行銷就好。</p>
+    <div class="sms-grid">
+      <div class="sms-card">
+        <div class="sms-icon" style="background:#E0F5F2;color:#2DD4BF;">👤</div>
+        <h3>KYC 身份驗證</h3>
+        <p>依 NCC 規範，商業簡訊發送方須完成實名驗證。站內提供完整 KYC 申請流程，審核通過即可合規發送。</p>
+      </div>
+      <div class="sms-card">
+        <div class="sms-icon" style="background:#E0F5F2;color:#2DD4BF;">🛡️</div>
+        <h3>網域白名單申請</h3>
+        <p>簡訊內含網址須通過電信業者白名單審核。站內一鍵提交申請，流程透明，不用自己研究法規細節。</p>
+      </div>
+      <div class="sms-card">
+        <div class="sms-icon" style="background:#E0F5F2;color:#2DD4BF;">🔗</div>
+        <h3>短網址嵌入追蹤</h3>
+        <p>將品牌短網址直接嵌入簡訊，每次點擊完整記錄來源與成效，廣告投報率清楚掌握。</p>
+      </div>
+      <div class="sms-card">
+        <div class="sms-icon" style="background:#E0F5F2;color:#2DD4BF;">📋</div>
+        <h3>同一後台整合操作</h3>
+        <p>短網址與簡訊行銷共用同一個後台，不需切換系統，從建立連結到發送簡訊，一氣呵成。</p>
       </div>
     </div>
   </div>
