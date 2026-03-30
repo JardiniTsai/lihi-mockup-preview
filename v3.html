@@ -323,19 +323,19 @@ button{border:none;cursor:pointer;font-family:inherit}
   .pain-card h3{font-size:18px}
   .pain-card p{font-size:15px;line-height:22px}
   /* 流程圖：圓形循環圖 */
-  .pain-flow{position:relative;width:300px;height:300px;margin:16px auto 0;display:block}
+  .pain-flow{position:relative;width:260px;height:240px;margin:12px auto 0;display:block}
   .pfi-arrow{display:none}
   .pfi-step{position:absolute;text-align:center;width:90px;z-index:2}
-  .pfi-step img{height:44px!important;display:block;margin:0 auto 4px}
-  .pfi-label{font-size:12px;padding:3px 10px;white-space:nowrap}
+  .pfi-step img{height:56px!important;display:block;margin:0 auto 4px}
+  .pfi-label{font-size:13px;padding:4px 12px;white-space:nowrap}
   /* 困惑：上 */
-  .pfi-step:nth-of-type(1){top:0;left:50%;transform:translateX(-50%)}
+  .pfi-step:nth-of-type(1){top:-8px;left:50%;transform:translateX(-50%)}
   /* 假設錯誤：右 */
-  .pfi-step:nth-of-type(2){top:50%;right:0;transform:translateY(-50%)}
+  .pfi-step:nth-of-type(2){top:50%;right:-10px;transform:translateY(-50%)}
   /* 繼續嘗試：下 */
-  .pfi-step:nth-of-type(3){bottom:0;left:50%;transform:translateX(-50%)}
+  .pfi-step:nth-of-type(3){bottom:-8px;left:50%;transform:translateX(-50%)}
   /* 還是失敗：左 */
-  .pfi-step:nth-of-type(4){top:50%;left:0;transform:translateY(-50%)}
+  .pfi-step:nth-of-type(4){top:50%;left:-10px;transform:translateY(-50%)}
   /* 循環箭頭 SVG */
   .circular-arrows{display:block;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none}
 
@@ -579,23 +579,23 @@ button{border:none;cursor:pointer;font-family:inherit}
         <span class="pfi-label fail">還是失敗</span>
       </div>
       <!-- 手機版圓形循環箭頭 SVG -->
-      <svg class="circular-arrows" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="circular-arrows" viewBox="0 0 260 240" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <marker id="ah1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#FF6B9D"/></marker>
-          <marker id="ah2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1A1A5E"/></marker>
-          <marker id="ah3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#FF6B9D"/></marker>
-          <marker id="ah4" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
+          <marker id="ah1" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 7 2.5, 0 5" fill="#FF6B9D"/></marker>
+          <marker id="ah2" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 7 2.5, 0 5" fill="#1A1A5E"/></marker>
+          <marker id="ah3" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 7 2.5, 0 5" fill="#FF6B9D"/></marker>
+          <marker id="ah4" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 7 2.5, 0 5" fill="#DC2626"/></marker>
         </defs>
-        <!-- 困惑→假設錯誤 (top→right) -->
-        <path d="M195,62 Q248,30 258,110" stroke="#FF6B9D" stroke-width="2.5" stroke-dasharray="6,3" marker-end="url(#ah1)"/>
-        <!-- 假設錯誤→繼續嘗試 (right→bottom) -->
-        <path d="M258,198 Q248,270 195,245" stroke="#1A1A5E" stroke-width="2.5" stroke-dasharray="6,3" marker-end="url(#ah2)"/>
-        <!-- 繼續嘗試→還是失敗 (bottom→left) -->
-        <path d="M105,245 Q52,270 42,198" stroke="#FF6B9D" stroke-width="2.5" stroke-dasharray="6,3" marker-end="url(#ah3)"/>
-        <!-- 還是失敗→困惑 (left→top) -->
-        <path d="M42,110 Q52,30 105,62" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="6,3" marker-end="url(#ah4)"/>
+        <!-- 困惑→假設錯誤 (top-right arc) -->
+        <path d="M168,55 Q210,40 220,95" stroke="#FF6B9D" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ah1)"/>
+        <!-- 假設錯誤→繼續嘗試 (right-bottom arc) -->
+        <path d="M220,152 Q210,200 168,190" stroke="#1A1A5E" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ah2)"/>
+        <!-- 繼續嘗試→還是失敗 (bottom-left arc) -->
+        <path d="M92,190 Q50,200 40,152" stroke="#FF6B9D" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ah3)"/>
+        <!-- 還是失敗→困惑 (left-top arc) -->
+        <path d="M40,95 Q50,40 92,55" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ah4)"/>
         <!-- 中心循環 icon -->
-        <text x="150" y="158" text-anchor="middle" font-size="28" fill="#FF6B9D" opacity="0.4">🔄</text>
+        <text x="130" y="128" text-anchor="middle" font-size="24" fill="#FF6B9D" opacity="0.35">🔄</text>
       </svg>
     </div>
   </div>
