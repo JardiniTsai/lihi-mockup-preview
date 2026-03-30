@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Mock 1 — 迷你 Analytics 儀表板卡片</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC','Inter',sans-serif;color:#1E293B;line-height:1.5;background:#f5f5f5;display:flex;justify-content:center;padding:20px 0}
+.phone-frame{width:390px;background:linear-gradient(160deg,#fff 50%,#FFF0F5 100%);min-height:100vh;position:relative;overflow:hidden}
+.phone-frame::before{content:'';position:absolute;top:-30%;right:-30%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,107,157,0.08) 0%,transparent 70%);pointer-events:none}
+
+.hero{padding:60px 20px 32px;position:relative}
+.badge{display:inline-block;font-size:12px;font-weight:600;color:#FF6B9D;background:rgba(255,107,157,0.1);padding:4px 12px;border-radius:20px;margin-bottom:16px}
+.hero-title{font-size:28px;line-height:38px;font-weight:700;color:#1A1A5E;margin-bottom:20px}
+.hero-title span{color:#FF6B9D}
+
+.bullet-section{display:grid;grid-template-columns:1fr 140px;gap:12px;align-items:start;margin-bottom:24px}
+.bullets{list-style:none}
+.bullets li{font-size:14px;color:#1A1A5E;margin-bottom:8px;font-weight:500;line-height:1.4}
+
+/* 迷你數據卡片 */
+.mini-cards{position:relative;height:140px}
+.mini-card{position:absolute;background:#fff;border-radius:10px;padding:10px 14px;box-shadow:0 4px 16px rgba(26,26,94,0.12);border:1px solid rgba(26,26,94,0.06);text-align:center;min-width:110px}
+.mini-card .value{font-size:18px;font-weight:700;font-family:'Inter',sans-serif}
+.mini-card .label{font-size:10px;color:#7B7B9E;margin-top:2px}
+.card-1{top:0;left:10px;transform:rotate(-3deg);z-index:3}
+.card-1 .value{color:#22C55E}
+.card-2{top:35px;left:30px;transform:rotate(3deg);z-index:2}
+.card-2 .value{color:#FF6B9D}
+.card-3{top:70px;left:5px;transform:rotate(-1deg);z-index:1}
+.card-3 .value{color:#F5A623}
+
+.search-box{display:flex;gap:0;margin-bottom:12px}
+.search-box input{flex:1;padding:14px 16px;border:2px solid rgba(26,26,94,0.15);border-right:none;border-radius:10px 0 0 10px;font-size:15px;outline:none;font-family:'Noto Sans TC','Inter',sans-serif;background:#fff}
+.search-box input::placeholder{color:#94A3B8}
+.search-box button{background:#FF6B9D;color:#fff;font-size:15px;font-weight:700;padding:14px 20px;border:none;border-radius:0 10px 10px 0;cursor:pointer;white-space:nowrap}
+.hint{font-size:12px;color:#7B7B9E;text-align:center}
+</style>
+</head>
+<body>
+<div class="phone-frame">
+  <div class="hero">
+    <div class="badge">🚀 品牌網域</div>
+    <h1 class="hero-title">創立品牌，<br>從擁有<span>網域</span>開始</h1>
+
+    <div class="bullet-section">
+      <ul class="bullets">
+        <li>✅ 自動設定，技術門檻歸零</li>
+        <li>✅ 簡單介面，即時客服支援</li>
+        <li>✅ 追蹤成效，行銷效益提高</li>
+      </ul>
+      <div class="mini-cards">
+        <div class="mini-card card-1">
+          <div class="value">+25%</div>
+          <div class="label">CTR 提升</div>
+        </div>
+        <div class="mini-card card-2">
+          <div class="value">5K+</div>
+          <div class="label">品牌使用</div>
+        </div>
+        <div class="mini-card card-3">
+          <div class="value">2×</div>
+          <div class="label">測試效率</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="輸入你的品牌名稱">
+      <button>搜尋網域</button>
+    </div>
+    <p class="hint">免費查詢，不需信用卡</p>
+  </div>
+</div>
+</body>
+</html>
