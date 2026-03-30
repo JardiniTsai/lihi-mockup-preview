@@ -189,7 +189,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 .marquee-item.text-logo{font-size:18px;font-weight:700;color:#888;white-space:nowrap;letter-spacing:1px}
 
 /* ===== SECTION: PAIN POINTS ===== */
-.pain-points{background:var(--light-gray);padding:var(--section-py) 0 24px;position:relative;overflow:hidden}
+.pain-points{background:var(--light-gray);padding:8px 0 24px;position:relative;overflow:hidden}
 .pain-points::before{content:'';position:absolute;top:10%;right:-5%;width:200px;height:200px;background:radial-gradient(circle,rgba(255,107,157,0.06) 0%,transparent 70%);pointer-events:none;border-radius:50%}
 .pain-points::after{content:'';position:absolute;bottom:5%;left:-3%;width:150px;height:150px;background:radial-gradient(circle,rgba(26,26,94,0.04) 0%,transparent 70%);pointer-events:none;border-radius:50%}
 
@@ -222,12 +222,14 @@ button{border:none;cursor:pointer;font-family:inherit}
 .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--card-gap)}
 .tool-card{background:#fff;border-radius:12px;padding:32px;box-shadow:var(--shadow-rest);transition:all .3s ease}
 .tool-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
-.tool-icon{font-size:40px;margin-bottom:16px}
+.tool-icon{font-size:40px;margin-bottom:16px;display:none}
 .tool-card h3{font-size:18px;font-weight:700;margin-bottom:8px}
 .tool-card p{font-size:14px;line-height:22px;color:var(--text-secondary)}
 
 /* Mini product screenshots for tool cards */
-.mini-screenshot{width:100%;height:80px;background:#F8FAFC;border-radius:8px;border:1px solid #E5E7EB;margin-bottom:14px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.mini-screenshot{width:100%;height:80px;background:#F8FAFC;border-radius:8px;border:1px solid #E5E7EB;margin-bottom:14px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:flex-start}
+.mini-screenshot .tool-icon-inline{font-size:28px;padding:0 12px;border-right:1px solid #E5E7EB;height:100%;display:flex;align-items:center;flex-shrink:0}
+.mini-screenshot .mini-content{flex:1;display:flex;align-items:center;justify-content:center}
 /* AB Split mini */
 .mini-ab{display:flex;gap:6px;padding:8px;align-items:stretch}
 .mini-ab-side{flex:1;background:#fff;border-radius:4px;padding:8px 6px;text-align:center;border:2px solid transparent;font-size:11px;font-weight:700;white-space:nowrap}
@@ -297,7 +299,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 .data-cta-wrap{text-align:center}
 
 /* ===== SECTION: TESTIMONIALS ===== */
-.testimonials{background:#fff;padding:var(--section-py) 0;position:relative;overflow:hidden}
+.testimonials{background:#fff;padding:16px 0 var(--section-py);position:relative;overflow:hidden}
 .testimonials::before{content:'';position:absolute;top:5%;left:-3%;width:180px;height:180px;background:radial-gradient(circle,rgba(255,107,157,0.05) 0%,transparent 70%);pointer-events:none;border-radius:50%}
 .testimonials .section-desc{text-align:center;font-size:18px;color:var(--text-secondary);margin-top:-4px;margin-bottom:var(--title-gap)}
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--card-gap)}
@@ -861,20 +863,21 @@ button{border:none;cursor:pointer;font-family:inherit}
       <!-- 1. 自訂網域 -->
       <div class="tool-card fade-in">
         <div class="mini-screenshot">
-          <div class="mini-domain">
+          <div class="tool-icon-inline">🌐</div>
+          <div class="mini-content"><div class="mini-domain">
             <div class="mini-domain-lock">🔒 HTTPS</div>
             <div class="mini-domain-url"><span class="brand">YourBrand.com</span>/新品上市</div>
             <div style="font-size:8px;color:var(--text-secondary);margin-top:2px">→ 品牌專屬短網址</div>
-          </div>
+          </div></div>
         </div>
-        <div class="tool-icon">🌐</div>
         <h3>自訂網域</h3>
         <p>打造專屬品牌短網址，提升點擊信任度，讓品牌形象延伸到每一條連結。</p>
       </div>
       <!-- 2. 自動分流 -->
       <div class="tool-card fade-in" style="transition-delay:.1s">
         <div class="mini-screenshot">
-          <div class="mini-ab">
+          <div class="tool-icon-inline">🔀</div>
+          <div class="mini-content"><div class="mini-ab">
             <div class="mini-ab-side a">
               <div>A 版</div>
               <div class="mini-ab-bar"></div>
@@ -888,16 +891,16 @@ button{border:none;cursor:pointer;font-family:inherit}
               <div class="mini-ab-bar"></div>
               <div class="mini-ab-pct">35%</div>
             </div>
-          </div>
+          </div></div>
         </div>
-        <div class="tool-icon">🔀</div>
         <h3>自動分流</h3>
         <p>流量自動分配至多個目標頁面，同一瀏覽器只見同一頁面，確保測試數據精準。</p>
       </div>
       <!-- 3. QR Code -->
       <div class="tool-card fade-in" style="transition-delay:.15s">
         <div class="mini-screenshot">
-          <div class="mini-qr">
+          <div class="tool-icon-inline">📱</div>
+          <div class="mini-content"><div class="mini-qr">
             <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
             <span></span><span class="w"></span><span class="w"></span><span class="w"></span><span class="w"></span><span class="w"></span><span></span>
             <span></span><span class="w"></span><span></span><span></span><span></span><span class="w"></span><span></span>
@@ -905,53 +908,52 @@ button{border:none;cursor:pointer;font-family:inherit}
             <span></span><span class="w"></span><span></span><span></span><span></span><span class="w"></span><span></span>
             <span></span><span class="w"></span><span class="w"></span><span class="w"></span><span class="w"></span><span class="w"></span><span></span>
             <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          </div>
+          </div></div>
         </div>
-        <div class="tool-icon">📱</div>
         <h3>QR Code 產生器</h3>
         <p>把連結、WiFi 設定、電話、圖片都變成 QR Code，而且隨時可替換目的地。</p>
       </div>
       <!-- 4. 連結置換 -->
       <div class="tool-card fade-in" style="transition-delay:.2s">
         <div class="mini-screenshot">
-          <div class="mini-replace">
+          <div class="tool-icon-inline">🔄</div>
+          <div class="mini-content"><div class="mini-replace">
             <div class="mini-replace-row">
               <span class="mini-replace-old">brand.com/舊活動</span>
               <span class="mini-replace-arrow">→</span>
               <span class="mini-replace-new">brand.com/新活動 ✓</span>
             </div>
             <div style="font-size:8px;color:var(--text-secondary);text-align:center;margin-top:4px">短網址不變，目的地即時更換</div>
-          </div>
+          </div></div>
         </div>
-        <div class="tool-icon">🔄</div>
         <h3>連結置換</h3>
         <p>廣告已投放不必重做，直接從後台替換目標連結，素材文案完全不用動。</p>
       </div>
       <!-- 5. 流量追蹤 -->
       <div class="tool-card fade-in" style="transition-delay:.25s">
         <div class="mini-screenshot">
-          <div class="mini-tracking">
+          <div class="tool-icon-inline">📊</div>
+          <div class="mini-content"><div class="mini-tracking">
             <div class="mini-code">
               <span class="tag">&lt;script&gt;</span><br>
               <span class="attr"> gtag</span>(<span class="val">'config'</span>,<span class="val">'GA-XXX'</span>);<br>
               <span class="attr"> fbq</span>(<span class="val">'track'</span>,<span class="val">'PageView'</span>);<br>
               <span class="tag">&lt;/script&gt;</span>
             </div>
-          </div>
+          </div></div>
         </div>
-        <div class="tool-icon">📊</div>
         <h3>流量追蹤 + 自訂參數</h3>
         <p>一次設定 GA、Pixel、GTM 等追蹤碼，自訂參數與追蹤變數，精準分析每個渠道的來源成效與 ROI。</p>
       </div>
       <!-- 6. 平台認證 -->
       <div class="tool-card fade-in" style="transition-delay:.3s">
         <div class="mini-screenshot">
-          <div class="mini-verify">
+          <div class="tool-icon-inline">✅</div>
+          <div class="mini-content"><div class="mini-verify">
             <div class="mini-badge"><span class="check">✓</span> Meta 認證</div>
             <div class="mini-badge"><span class="check">✓</span> Google 認證</div>
-          </div>
+          </div></div>
         </div>
-        <div class="tool-icon">✅</div>
         <h3>可跟各大平台認證</h3>
         <p>Meta 企業管理員、Google Search Console，驗證後減少被封鎖的風險。</p>
       </div>
@@ -1039,13 +1041,6 @@ button{border:none;cursor:pointer;font-family:inherit}
     </div>
   </div>
 </section>
-
-<!-- Wave divider: data → testimonials -->
-<div class="wave-divider flip" style="margin-top:-1px">
-  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,16 C360,48 1080,0 1440,32 L1440,48 L0,48 Z" fill="#ffffff"/>
-  </svg>
-</div>
 
 <!-- ===== SECTION 7: TESTIMONIALS ===== -->
 <section class="testimonials" id="testimonials">
