@@ -21,18 +21,20 @@ button{border:none;cursor:pointer;font-family:inherit}
 
 /* ===== DESIGN TOKENS ===== */
 :root{
-  --dark-bg:#0B1D3A;
-  --dark-bg2:#1A3A5C;
+  --dark-bg:#1A1A5E;
+  --dark-bg2:#191659;
   --light-gray:#F7F8FA;
-  --brand-blue:#4A90D9;
-  --cta-orange:#F5A623;
-  --cta-hover:#E09515;
+  --brand-pink:#FF6B9D;
+  --brand-blue:#FF6B9D;
+  --cta-orange:#FF6B9D;
+  --cta-hover:#E8558A;
   --success:#22C55E;
   --warning:#EF4444;
-  --text-dark:#1E293B;
+  --text-dark:#1A1A5E;
   --text-secondary:#64748B;
   --text-light:#E2E8F0;
-  --footer-bg:#1A1A2E;
+  --light-pink:#FFB3CC;
+  --footer-bg:#131344;
   --shadow-rest:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04);
   --shadow-hover:0 4px 12px rgba(0,0,0,0.08),0 8px 24px rgba(0,0,0,0.06);
   --shadow-elevated:0 8px 30px rgba(0,0,0,0.12);
@@ -47,7 +49,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 
 /* ===== UTILITY ===== */
 .container{max-width:var(--max-w);margin:0 auto;padding:0 24px;width:100%}
-.section-subtitle{font-size:14px;line-height:20px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--brand-blue);margin-bottom:12px}
+.section-subtitle{font-size:14px;line-height:20px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--brand-pink);margin-bottom:12px}
 .section-title{font-size:36px;line-height:44px;font-weight:700;margin-bottom:var(--title-gap)}
 .section-title.center,.section-subtitle.center{text-align:center}
 .btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--cta-orange);color:#fff;font-size:18px;font-weight:700;padding:16px 40px;border-radius:var(--btn-radius);transition:all .2s ease}
@@ -70,17 +72,17 @@ button{border:none;cursor:pointer;font-family:inherit}
 }
 
 /* ===== NAV ===== */
-.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:16px 0;transition:all .3s ease;background:transparent}
-.nav.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:16px 0;transition:all .3s ease;background:#fff}
+.nav.scrolled{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 3px rgba(0,0,0,0.08)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-w);margin:0 auto;padding:0 24px}
 .nav-logo img{height:32px}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-links a{font-size:15px;font-weight:500;color:#fff;transition:color .3s ease}
+.nav-links a{font-size:15px;font-weight:500;color:var(--text-dark);transition:color .3s ease}
 .nav.scrolled .nav-links a{color:var(--text-dark)}
-.nav-links a:hover{color:var(--cta-orange)}
+.nav-links a:hover{color:var(--brand-pink)}
 .nav-cta .btn-primary{padding:10px 24px;font-size:15px}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;padding:8px}
-.nav-hamburger span{display:block;width:24px;height:2px;background:#fff;transition:all .3s ease;border-radius:2px}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--text-dark);transition:all .3s ease;border-radius:2px}
 .nav.scrolled .nav-hamburger span{background:var(--text-dark)}
 .nav-mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:#fff;padding:24px;box-shadow:var(--shadow-elevated);z-index:999}
 .nav-mobile-menu.open{display:block}
@@ -99,7 +101,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 .hero-search button{padding:16px 28px;background:var(--cta-orange);color:#fff;font-weight:700;font-size:16px;border-radius:0 var(--btn-radius) var(--btn-radius) 0;white-space:nowrap;transition:background .2s}
 .hero-search button:hover{background:var(--cta-hover)}
 .hero-link{font-size:15px;color:var(--brand-blue);font-weight:500;transition:color .2s;margin-top:12px;display:inline-block}
-.hero-link:hover{color:#6DB3F8}
+.hero-link:hover{color:var(--cta-hover)}
 
 /* Dashboard Mockup */
 .dashboard-mockup{perspective:1200px}
@@ -113,7 +115,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 .mockup-dots span:nth-child(3){background:#27C93F}
 .mockup-url{flex:1;background:#fff;border-radius:6px;padding:6px 12px;font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--text-secondary);margin-left:8px}
 .mockup-body{padding:28px;background:#FAFBFC}
-.mockup-brand-url{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;color:var(--brand-blue);background:#EEF4FB;padding:10px 16px;border-radius:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.mockup-brand-url{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;color:var(--dark-bg);background:#FFF0F5;padding:10px 16px;border-radius:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
 .mockup-brand-url .lock{color:var(--success);font-size:14px}
 .mockup-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
 .mockup-stat{background:#fff;border-radius:10px;padding:14px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
@@ -158,7 +160,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 .pain-flow{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:16px}
 .pfi-step{text-align:center}
 .pfi-step img{display:block;margin:0 auto 8px}
-.pfi-label{display:inline-block;padding:4px 16px;border-radius:6px;font-size:14px;font-weight:600;background:#EEF4FB;color:var(--brand-blue)}
+.pfi-label{display:inline-block;padding:4px 16px;border-radius:6px;font-size:14px;font-weight:600;background:#FFF0F5;color:var(--brand-pink)}
 .pfi-label.fail{background:#FEE2E2;color:#DC2626}
 .pfi-arrow{font-size:20px;color:#ccc;margin-top:-20px}
 
@@ -287,7 +289,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 <!-- ===== NAV ===== -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo"><img src="https://lihidev.com/assets/images/lihi-logo-primary.png" alt="lihi" style="filter:brightness(0) invert(1);height:32px"></a>
+    <a href="#" class="nav-logo"><img src="https://lihidev.com/assets/images/lihi-logo-primary.png" alt="lihi" style="height:32px"></a>
     <ul class="nav-links">
       <li><a href="#">品牌網域 ▾</a></li>
       <li><a href="#">行銷工具 ▾</a></li>
@@ -339,8 +341,8 @@ button{border:none;cursor:pointer;font-family:inherit}
                 <span class="lock">🔒</span>
                 <span>你的品牌短網址</span>
               </div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;color:var(--brand-blue);background:#EEF4FB;padding:10px 16px;border-radius:8px;margin-bottom:20px;text-align:center">
-                <span style="color:var(--brand-blue)">yourbrand.com</span>/新品上市
+              <div style="font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;color:var(--dark-bg);background:#FFF0F5;padding:10px 16px;border-radius:8px;margin-bottom:20px;text-align:center">
+                <span style="color:var(--brand-pink)">yourbrand.com</span>/新品上市
               </div>
               <div class="mockup-stats">
                 <div class="mockup-stat">
@@ -680,7 +682,7 @@ button{border:none;cursor:pointer;font-family:inherit}
       navLogo.style.filter = 'none';
     } else {
       nav.classList.remove('scrolled');
-      navLogo.style.filter = 'brightness(0) invert(1)';
+      navLogo.style.filter = 'none';
     }
   }
   window.addEventListener('scroll', handleNavScroll, { passive: true });
