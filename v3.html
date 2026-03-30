@@ -240,47 +240,120 @@ button{border:none;cursor:pointer;font-family:inherit}
 .mobile-sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;padding:12px 24px;box-shadow:0 -2px 12px rgba(0,0,0,0.1);z-index:999}
 .mobile-sticky-cta .btn-primary{width:100%;text-align:center;font-size:16px;padding:14px}
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:1199px){
-  .hero-grid{gap:40px}
-  .data-stats-row{gap:16px}
-}
-
-@media(max-width:767px){
-  :root{--section-py:40px;--title-gap:20px;--card-gap:20px}
-  .nav-links{display:none}
-  .nav-hamburger{display:flex}
-  .nav-cta.desktop{display:none}
-  .hero{padding:120px 0 64px}
-  .hero-grid{grid-template-columns:1fr;gap:40px}
-  .hero-title{font-size:36px;line-height:44px}
-  .hero-search{flex-direction:column;gap:12px}
-  .hero-search input{border-radius:var(--input-radius)}
-  .hero-search button{border-radius:var(--input-radius);padding:14px;text-align:center}
-  .section-title{font-size:28px;line-height:36px}
-  .benefits-list{flex-wrap:wrap}
-  .benefit-item{flex:none;width:50%;border-right:none;border-bottom:1px solid rgba(26,26,94,0.1)}
-  .pain-grid{grid-template-columns:1fr}
-  .pain-flow{flex-wrap:wrap;gap:12px}
-  .tools-grid{grid-template-columns:1fr}
-  .data-stats-row{grid-template-columns:1fr;max-width:100%}
-  .data-stat-card .stat-num{font-size:36px}
-  .test-grid{display:none}
-  .test-carousel{display:flex}
-  .faq-question{font-size:16px}
-  .final-cta h2{font-size:28px}
-  .final-cta .btn-primary{font-size:18px;padding:16px 36px}
-  .footer-inner{flex-direction:column}
-  .footer-right{text-align:left}
-  .footer-social{justify-content:flex-start}
-  .mobile-sticky-cta{display:block}
-  body{padding-bottom:80px}
-}
-
+/* ===== RESPONSIVE: TABLET (768-1199px) ===== */
 @media(min-width:768px) and (max-width:1199px){
+  .hero-grid{gap:40px;grid-template-columns:1fr 1fr}
+  .hero-title{font-size:36px;line-height:44px}
+  .data-stats-row{gap:16px}
   .tools-grid{grid-template-columns:repeat(2,1fr)}
   .test-grid{grid-template-columns:repeat(2,1fr)}
   .test-grid .test-card:nth-child(3){grid-column:span 2;max-width:50%;margin:0 auto}
+  .pain-grid{grid-template-columns:repeat(2,1fr)}
+  .pain-grid .pain-card:nth-child(3){grid-column:span 2;max-width:50%;margin:0 auto}
+  .benefits-list{flex-wrap:wrap;justify-content:center}
+  .benefit-item{flex:none;width:33.33%}
+}
+
+/* ===== RESPONSIVE: MOBILE (<768px) ===== */
+@media(max-width:767px){
+  /* --- 13. 全域 --- */
+  :root{--section-py:32px;--title-gap:20px;--card-gap:16px}
+  body{overflow-x:hidden;padding-bottom:72px}
+  img{max-width:100%;height:auto}
+  .container{padding:0 16px}
+  .section-title{font-size:24px;line-height:32px}
+
+  /* --- 12. Nav --- */
+  .nav-links{display:none!important}
+  .nav-hamburger{display:flex}
+  .nav-cta.desktop{display:none!important}
+
+  /* --- 1. Hero --- */
+  .hero{padding:80px 0 48px}
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero-title{font-size:28px;line-height:36px}
+  .hero-bullets li{font-size:15px;margin-bottom:8px}
+  .hero-search{flex-direction:column;gap:10px;max-width:100%}
+  .hero-search input{border:2px solid rgba(26,26,94,0.15);border-radius:var(--input-radius);width:100%}
+  .hero-search button{border-radius:var(--input-radius);padding:14px;text-align:center;width:100%}
+  .dashboard-mockup{perspective:none}
+  .mockup-browser{transform:none!important;box-shadow:0 8px 24px rgba(26,26,94,0.12)}
+  .mockup-browser:hover{transform:none!important}
+  .mockup-body{padding:20px 16px}
+  .mockup-stats{grid-template-columns:repeat(3,1fr);gap:8px}
+  .mockup-stat .num{font-size:16px}
+  .mockup-stat .label{font-size:10px}
+
+  /* --- 2. 五大好處 --- */
+  .benefits h2{font-size:24px;margin-bottom:20px}
+  .benefits-list{flex-wrap:wrap;justify-content:center}
+  .benefit-item{flex:none;width:50%;border-right:none;border-bottom:1px solid rgba(26,26,94,0.1);padding:16px 12px}
+  .benefit-item:nth-child(5){width:100%;border-bottom:none}
+  .benefit-icon{font-size:32px;margin-bottom:8px}
+  .benefit-item h3{font-size:14px;line-height:1.4}
+
+  /* --- 3. 信任 logo 牆 --- */
+  .marquee-item{height:28px}
+  .marquee-item img{height:28px}
+  .marquee-item.text-logo{font-size:13px}
+  .marquee-track{gap:28px}
+
+  /* --- 4. 痛點三卡 --- */
+  .pain-grid{grid-template-columns:1fr}
+  .pain-card{padding:24px}
+  .pain-card h3{font-size:18px}
+  .pain-card p{font-size:15px;line-height:22px}
+  /* 流程圖：2x2 grid，隱藏箭頭 */
+  .pain-flow{display:grid;grid-template-columns:1fr 1fr;gap:16px;justify-items:center}
+  .pfi-arrow{display:none}
+  .pfi-step img{height:48px!important}
+  .pfi-label{font-size:13px;padding:4px 12px}
+
+  /* --- 5. 功能六宮格 --- */
+  .tools-grid{grid-template-columns:1fr}
+  .tools-transition{font-size:15px;padding-top:16px;margin-bottom:12px}
+  .tool-card{padding:24px}
+  .tool-card h3{font-size:16px}
+  .tool-card p{font-size:13px;line-height:20px}
+
+  /* --- 6. 數據區 --- */
+  .data-stats-row{grid-template-columns:1fr;max-width:100%;gap:12px}
+  .data-stat-card{padding:20px 16px}
+  .data-stat-card .stat-num{font-size:42px}
+  .data-stat-card .stat-label{font-size:14px}
+  .data-img-full{max-width:100%}
+  .data-img-full img{width:100%;border-radius:8px}
+  .data-header h2{font-size:28px}
+
+  /* --- 7. 見證區 --- */
+  .test-grid{display:none!important}
+  .test-carousel{display:flex;padding:0 16px 16px}
+  .test-carousel .test-card{min-width:85vw;width:85vw}
+
+  /* --- 8. FAQ --- */
+  .faq-question{font-size:15px;padding:16px 0}
+  .faq-answer-inner{font-size:14px;line-height:1.6;padding:0 0 16px}
+  .faq-icon{font-size:20px}
+
+  /* --- 9. 最終 CTA --- */
+  .final-cta h2{font-size:26px}
+  .final-cta .subtitle{font-size:16px;margin-bottom:24px}
+  .final-cta .btn-primary{font-size:17px;padding:16px 24px;width:100%;text-align:center}
+
+  /* --- 10. Footer --- */
+  .footer-inner{flex-direction:column;gap:24px}
+  .footer-right{text-align:left}
+  .footer-links{justify-content:flex-start}
+  .footer-social{justify-content:flex-start}
+  .footer-left p{font-size:12px}
+
+  /* --- 11. Mobile sticky CTA bar --- */
+  .mobile-sticky-cta{display:block}
+  .mobile-sticky-cta .btn-primary{padding:12px;font-size:16px}
+
+  /* Mid CTA */
+  .mid-cta h2{font-size:24px}
+  .mid-cta .subtitle{font-size:14px}
 }
 </style>
 </head>
