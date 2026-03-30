@@ -291,11 +291,15 @@ button{border:none;cursor:pointer;font-family:inherit}
 
   /* --- 2. 五大好處 --- */
   .benefits h2{font-size:24px;margin-bottom:20px}
-  .benefits-list{flex-wrap:wrap;justify-content:center}
-  .benefit-item{flex:none;width:50%;border-right:none;border-bottom:1px solid rgba(26,26,94,0.1);padding:16px 12px}
-  .benefit-item:nth-child(5){width:100%;border-bottom:none}
-  .benefit-icon{font-size:32px;margin-bottom:8px}
-  .benefit-item h3{font-size:14px;line-height:1.4}
+  .benefits-list{flex-wrap:wrap;justify-content:center;gap:0}
+  .benefit-item{flex:none;width:50%;border-right:none;border-bottom:1px solid rgba(26,26,94,0.1);padding:14px 10px}
+  .benefit-item:nth-child(1){order:1}
+  .benefit-item:nth-child(2){order:2}
+  .benefit-item:nth-child(3){order:4}
+  .benefit-item:nth-child(4){order:5}
+  .benefit-item:nth-child(5){order:3;width:100%;border-bottom:1px solid rgba(26,26,94,0.1);background:rgba(255,255,255,0.4);padding:12px 10px}
+  .benefit-icon{font-size:28px;margin-bottom:6px}
+  .benefit-item h3{font-size:13px;line-height:1.4}
 
   /* --- 3. 信任 logo 牆 --- */
   .marquee-item{height:28px}
