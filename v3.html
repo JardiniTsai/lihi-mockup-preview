@@ -93,8 +93,11 @@ button{border:none;cursor:pointer;font-family:inherit}
 .hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,157,0.08) 0%,transparent 70%);pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:6fr 4fr;gap:64px;align-items:center}
 .hero-title{font-size:48px;line-height:56px;font-weight:700;margin-bottom:24px}
-.hero-bullets{list-style:none;margin-bottom:28px}
+.hero-bullet-section{margin-bottom:28px}
+.hero-bullets{list-style:none}
 .hero-bullets li{font-size:17px;color:var(--text-dark);margin-bottom:10px;font-weight:500}
+/* 手機版迷你 Dashboard — 桌面隱藏 */
+.mobile-dash-card{display:none}
 .hero-search{display:flex;gap:0;margin-bottom:16px;max-width:520px}
 .hero-search input{flex:1;padding:16px 20px;border:2px solid rgba(26,26,94,0.15);border-right:none;border-radius:var(--input-radius) 0 0 var(--input-radius);font-size:16px;outline:none;font-family:'Noto Sans TC','Inter',sans-serif;background:#fff}
 .hero-search input::placeholder{color:#94A3B8}
@@ -278,10 +281,32 @@ button{border:none;cursor:pointer;font-family:inherit}
   .hero{padding:80px 0 48px}
   .hero-grid{grid-template-columns:1fr;gap:32px}
   .hero-title{font-size:28px;line-height:36px}
-  .hero-bullets li{font-size:15px;margin-bottom:8px}
+  .hero-bullet-section{display:grid;grid-template-columns:1fr 160px;gap:10px;align-items:start;margin-bottom:20px}
+  .hero-bullets li{font-size:14px;margin-bottom:8px}
+  .mobile-dash-card{display:block;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(26,26,94,0.13);border:1px solid rgba(26,26,94,0.06);overflow:hidden}
+  .mdc-toolbar{background:#F1F3F5;padding:5px 10px;display:flex;align-items:center;gap:5px;border-bottom:1px solid #E5E7EB}
+  .mdc-dots{display:flex;gap:4px}
+  .mdc-dots span{width:6px;height:6px;border-radius:50%}
+  .mdc-dots span:nth-child(1){background:#FF5F56}
+  .mdc-dots span:nth-child(2){background:#FFBD2E}
+  .mdc-dots span:nth-child(3){background:#27C93F}
+  .mdc-url{font-size:7px;color:#7B7B9E;margin-left:4px;background:#fff;padding:2px 6px;border-radius:3px;flex:1;font-family:'JetBrains Mono',monospace}
+  .mdc-body{padding:8px}
+  .mdc-brand-url{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--dark-bg);background:#FFF0F5;padding:5px 8px;border-radius:5px;margin-bottom:6px;text-align:center;line-height:1.3}
+  .mdc-lock{color:#22C55E;font-size:9px}
+  .mdc-pink{color:var(--brand-pink)}
+  .mdc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:5px}
+  .mdc-stat{background:#FAFBFC;border-radius:4px;padding:4px 2px;text-align:center}
+  .mdc-num{font-size:11px;font-weight:700;font-family:'Inter',sans-serif;line-height:1.2}
+  .mdc-green{color:#22C55E}
+  .mdc-orange{color:#F5A623}
+  .mdc-pk{color:var(--brand-pink)}
+  .mdc-lbl{font-size:7px;color:#7B7B9E;line-height:1.2;margin-top:1px}
+  .mdc-footer{font-size:7px;color:#7B7B9E;text-align:center;padding-top:4px;border-top:1px solid #F0F0F0}
   .hero-search{flex-direction:column;gap:10px;max-width:100%}
   .hero-search input{border:2px solid rgba(26,26,94,0.15);border-radius:var(--input-radius);width:100%}
   .hero-search button{border-radius:var(--input-radius);padding:14px;text-align:center;width:100%}
+  .hero-right{display:none}
   .dashboard-mockup{perspective:none}
   .mockup-browser{transform:none!important;box-shadow:0 8px 24px rgba(26,26,94,0.12)}
   .mockup-browser:hover{transform:none!important}
@@ -421,11 +446,29 @@ button{border:none;cursor:pointer;font-family:inherit}
     <div class="hero-grid">
       <div class="hero-left">
         <h1 class="hero-title">創立品牌，從擁有網域開始</h1>
-        <ul class="hero-bullets">
-          <li>✅ 自動設定，技術門檻歸零</li>
-          <li>✅ 簡單介面，即時客服支援</li>
-          <li>✅ 追蹤成效，行銷效益提高</li>
-        </ul>
+        <div class="hero-bullet-section">
+          <ul class="hero-bullets">
+            <li>✅ 自動設定，技術門檻歸零</li>
+            <li>✅ 簡單介面，即時客服支援</li>
+            <li>✅ 追蹤成效，行銷效益提高</li>
+          </ul>
+          <!-- 手機版迷你 Dashboard 卡片 -->
+          <div class="mobile-dash-card">
+            <div class="mdc-toolbar">
+              <div class="mdc-dots"><span></span><span></span><span></span></div>
+              <div class="mdc-url">🔒 yourbrand.com</div>
+            </div>
+            <div class="mdc-body">
+              <div class="mdc-brand-url"><span class="mdc-lock">🔒</span> <span class="mdc-pink">yourbrand.com</span>/新品上市</div>
+              <div class="mdc-stats">
+                <div class="mdc-stat"><div class="mdc-num mdc-green">+25%</div><div class="mdc-lbl">點擊率</div></div>
+                <div class="mdc-stat"><div class="mdc-num mdc-orange">35%</div><div class="mdc-lbl">廣告費節省</div></div>
+                <div class="mdc-stat"><div class="mdc-num mdc-pk">2×</div><div class="mdc-lbl">測試效率</div></div>
+              </div>
+              <div class="mdc-footer">5,000+ 品牌使用 lihi</div>
+            </div>
+          </div>
+        </div>
         <div class="hero-search">
           <input type="text" placeholder="輸入你的品牌名稱，查詢可用網域">
           <button>查詢網域</button>
