@@ -283,26 +283,29 @@ button{border:none;cursor:pointer;font-family:inherit}
   .hero-title{font-size:28px;line-height:36px}
   .hero-bullet-section{display:grid;grid-template-columns:1fr 160px;gap:10px;align-items:start;margin-bottom:20px}
   .hero-bullets li{font-size:14px;margin-bottom:8px}
-  .mobile-dash-card{display:block;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(26,26,94,0.13);border:1px solid rgba(26,26,94,0.06);overflow:hidden}
-  .mdc-toolbar{background:#F1F3F5;padding:5px 10px;display:flex;align-items:center;gap:5px;border-bottom:1px solid #E5E7EB}
+  .mobile-dash-card{display:block;background:#fff;border-radius:8px;box-shadow:0 6px 20px rgba(26,26,94,0.14);border:1px solid rgba(26,26,94,0.08);overflow:hidden;transform:rotate(-2deg)}
+  .mdc-toolbar{background:#F1F3F5;padding:6px 10px;display:flex;align-items:center;gap:5px;border-bottom:1px solid #E5E7EB}
   .mdc-dots{display:flex;gap:4px}
-  .mdc-dots span{width:6px;height:6px;border-radius:50%}
+  .mdc-dots span{width:7px;height:7px;border-radius:50%}
   .mdc-dots span:nth-child(1){background:#FF5F56}
   .mdc-dots span:nth-child(2){background:#FFBD2E}
   .mdc-dots span:nth-child(3){background:#27C93F}
-  .mdc-url{font-size:7px;color:#7B7B9E;margin-left:4px;background:#fff;padding:2px 6px;border-radius:3px;flex:1;font-family:'JetBrains Mono',monospace}
-  .mdc-body{padding:8px}
-  .mdc-brand-url{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--dark-bg);background:#FFF0F5;padding:5px 8px;border-radius:5px;margin-bottom:6px;text-align:center;line-height:1.3}
-  .mdc-lock{color:#22C55E;font-size:9px}
-  .mdc-pink{color:var(--brand-pink)}
-  .mdc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:5px}
-  .mdc-stat{background:#FAFBFC;border-radius:4px;padding:4px 2px;text-align:center}
-  .mdc-num{font-size:11px;font-weight:700;font-family:'Inter',sans-serif;line-height:1.2}
+  .mdc-url{font-size:8px;color:#7B7B9E;margin-left:6px;background:#fff;padding:2px 6px;border-radius:3px;flex:1}
+  .mdc-body{padding:10px;background:#FAFBFC}
+  .mdc-chart{display:flex;align-items:flex-end;gap:4px;height:40px;margin-bottom:8px;padding:0 4px}
+  .mdc-bar{width:100%;border-radius:2px 2px 0 0;min-width:8px}
+  .mdc-bar:nth-child(1){height:50%;background:rgba(255,107,157,0.5)}
+  .mdc-bar:nth-child(2){height:75%;background:rgba(255,107,157,0.7)}
+  .mdc-bar:nth-child(3){height:60%;background:rgba(255,107,157,0.6)}
+  .mdc-bar:nth-child(4){height:90%;background:#FF6B9D}
+  .mdc-bar:nth-child(5){height:45%;background:rgba(255,107,157,0.4)}
+  .mdc-bar:nth-child(6){height:100%;background:#FF6B9D}
+  .mdc-stats{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+  .mdc-stat{background:#fff;border-radius:4px;padding:4px 6px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+  .mdc-num{font-size:12px;font-weight:700;font-family:'Inter',sans-serif}
   .mdc-green{color:#22C55E}
-  .mdc-orange{color:#F5A623}
   .mdc-pk{color:var(--brand-pink)}
-  .mdc-lbl{font-size:7px;color:#7B7B9E;line-height:1.2;margin-top:1px}
-  .mdc-footer{font-size:7px;color:#7B7B9E;text-align:center;padding-top:4px;border-top:1px solid #F0F0F0}
+  .mdc-lbl{font-size:7px;color:#7B7B9E}
   .hero-search{flex-direction:column;gap:10px;max-width:100%}
   .hero-search input{border:2px solid rgba(26,26,94,0.15);border-radius:var(--input-radius);width:100%}
   .hero-search button{border-radius:var(--input-radius);padding:14px;text-align:center;width:100%}
@@ -452,20 +455,25 @@ button{border:none;cursor:pointer;font-family:inherit}
             <li>✅ 簡單介面，即時客服支援</li>
             <li>✅ 追蹤成效，行銷效益提高</li>
           </ul>
-          <!-- 手機版迷你 Dashboard 卡片 -->
+          <!-- 手機版迷你瀏覽器 Dashboard -->
           <div class="mobile-dash-card">
             <div class="mdc-toolbar">
               <div class="mdc-dots"><span></span><span></span><span></span></div>
-              <div class="mdc-url">🔒 yourbrand.com</div>
+              <div class="mdc-url">lihi.io/dashboard</div>
             </div>
             <div class="mdc-body">
-              <div class="mdc-brand-url"><span class="mdc-lock">🔒</span> <span class="mdc-pink">yourbrand.com</span>/新品上市</div>
+              <div class="mdc-chart">
+                <div class="mdc-bar"></div>
+                <div class="mdc-bar"></div>
+                <div class="mdc-bar"></div>
+                <div class="mdc-bar"></div>
+                <div class="mdc-bar"></div>
+                <div class="mdc-bar"></div>
+              </div>
               <div class="mdc-stats">
                 <div class="mdc-stat"><div class="mdc-num mdc-green">+25%</div><div class="mdc-lbl">點擊率</div></div>
-                <div class="mdc-stat"><div class="mdc-num mdc-orange">35%</div><div class="mdc-lbl">廣告費節省</div></div>
-                <div class="mdc-stat"><div class="mdc-num mdc-pk">2×</div><div class="mdc-lbl">測試效率</div></div>
+                <div class="mdc-stat"><div class="mdc-num mdc-pk">1.2K</div><div class="mdc-lbl">今日點擊</div></div>
               </div>
-              <div class="mdc-footer">5,000+ 品牌使用 lihi</div>
             </div>
           </div>
         </div>
