@@ -155,16 +155,16 @@ button{border:none;cursor:pointer;font-family:inherit}
 .pain-result{font-size:14px;color:var(--warning);font-weight:600}
 
 /* Pain flow chart */
-.pain-flow{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:16px}
+.pain-flow{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:8px;margin-bottom:-16px}
 .pfi-step{text-align:center}
-.pfi-step img{display:block;margin:0 auto 8px}
-.pfi-label{display:inline-block;padding:4px 16px;border-radius:6px;font-size:14px;font-weight:600;background:#EEF4FB;color:var(--brand-blue)}
+.pfi-step img{display:block;margin:0 auto 6px;height:48px!important}
+.pfi-label{display:inline-block;padding:3px 12px;border-radius:6px;font-size:13px;font-weight:600;background:#EEF4FB;color:var(--brand-blue)}
 .pfi-label.fail{background:#FEE2E2;color:#DC2626}
-.pfi-arrow{font-size:20px;color:#ccc;margin-top:-20px}
+.pfi-arrow{font-size:16px;color:#ccc;margin-top:-16px}
 
 /* ===== SECTION: FEATURES ===== */
 .tools-section{background:var(--light-gray);padding:var(--section-py) 0}
-.tools-transition{text-align:center;font-size:18px;color:var(--text-secondary);margin-bottom:16px}
+.tools-transition{text-align:center;font-size:16px;color:var(--text-secondary);margin-bottom:12px;padding-top:0}
 .tools-section .section-title{text-align:center}
 .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--card-gap)}
 .tool-card{background:#fff;border-radius:12px;padding:32px;box-shadow:var(--shadow-rest);transition:all .3s ease}
@@ -175,14 +175,19 @@ button{border:none;cursor:pointer;font-family:inherit}
 
 /* ===== SECTION: DATA PROOF ===== */
 .data-section{background:linear-gradient(135deg,var(--dark-bg),var(--dark-bg2));padding:var(--section-py) 0;color:#fff}
-.data-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.data-img{border-radius:12px;overflow:hidden;box-shadow:var(--shadow-elevated)}
-.data-img img{width:100%;display:block;border-radius:12px}
-.data-number{font-size:80px;font-weight:700;font-family:'Inter',sans-serif;color:var(--cta-orange);line-height:1;margin-bottom:16px}
-.data-subtitle{font-size:20px;font-weight:600;margin-bottom:32px;color:var(--text-light)}
-.data-compare{margin-bottom:28px}
-.data-compare p{font-size:16px;line-height:28px;color:var(--text-light)}
-.data-compare .highlight{color:var(--cta-orange);font-weight:700;font-size:18px}
+.data-header{text-align:center;margin-bottom:32px}
+.data-header h2{font-size:36px;font-weight:700;color:#fff;margin-bottom:8px}
+.data-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.data-img{border-radius:12px;overflow:hidden;box-shadow:var(--shadow-elevated);border:1px solid rgba(255,255,255,0.1)}
+.data-img img{width:100%;display:block}
+.data-right{display:flex;flex-direction:column;gap:0}
+.data-stat-row{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+.data-number{font-size:72px;font-weight:700;font-family:'Inter',sans-serif;color:var(--cta-orange);line-height:1}
+.data-subtitle{font-size:18px;font-weight:600;color:var(--text-light)}
+.data-divider{width:60px;height:3px;background:var(--cta-orange);border-radius:2px;margin:16px 0}
+.data-compare{margin-bottom:24px}
+.data-compare p{font-size:15px;line-height:26px;color:rgba(255,255,255,0.7)}
+.data-compare .highlight{color:var(--cta-orange);font-weight:700;font-size:17px}
 
 /* ===== SECTION: TESTIMONIALS ===== */
 .testimonials{background:#fff;padding:var(--section-py) 0}
@@ -199,8 +204,8 @@ button{border:none;cursor:pointer;font-family:inherit}
 
 /* ===== SECTION: MID CTA ===== */
 .mid-cta{background:var(--light-gray);padding:var(--section-py) 0;text-align:center}
-.mid-cta h2{font-size:36px;font-weight:700;margin-bottom:16px;color:var(--text-dark)}
-.mid-cta .subtitle{font-size:18px;color:var(--text-secondary);margin-bottom:36px}
+.mid-cta h2{font-size:32px;font-weight:700;margin-bottom:8px;color:var(--text-dark)}
+.mid-cta .subtitle{font-size:16px;color:var(--text-secondary);margin-bottom:20px}
 
 /* ===== SECTION: FAQ ===== */
 .faq-section{background:var(--light-gray);padding:var(--section-py) 0}
@@ -518,18 +523,23 @@ button{border:none;cursor:pointer;font-family:inherit}
 <!-- ===== SECTION 6: DATA PROOF ===== -->
 <section class="data-section" id="data">
   <div class="container">
-    <h2 class="section-title center" style="color:#fff">數據不說謊</h2>
-    <div class="data-grid">
+    <div class="data-header">
+      <h2>數據不說謊</h2>
+    </div>
+    <div class="data-layout">
       <div class="data-img fade-in">
-        <img src="fb-ad-compare.png" alt="Facebook 廣告數據對比 — 品牌網址 vs 一般短網址" style="border-radius:12px">
+        <img src="fb-ad-compare.png" alt="Facebook 廣告數據對比 — 品牌網址 vs 一般短網址">
       </div>
-      <div class="data-content fade-in" style="transition-delay:.15s">
-        <div class="data-number" id="countUp" data-target="32.6">+0%</div>
-        <div class="data-subtitle">點擊率提升</div>
+      <div class="data-right fade-in" style="transition-delay:.15s">
+        <div class="data-stat-row">
+          <div class="data-number" id="countUp" data-target="32.6">+0%</div>
+          <div class="data-subtitle">點擊率<br>提升</div>
+        </div>
+        <div class="data-divider"></div>
         <div class="data-compare">
           <p>同樣的廣告費</p>
           <p>多拿 <span class="highlight">32.6%</span> 的點擊</p>
-          <p class="highlight" style="margin-top:12px">= 多出 30% 的訂單</p>
+          <p class="highlight" style="margin-top:8px">= 多出 30% 的訂單</p>
         </div>
         <a href="#final" class="btn-primary">馬上註冊 — 免費使用</a>
       </div>
