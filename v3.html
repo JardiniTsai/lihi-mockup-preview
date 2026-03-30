@@ -257,8 +257,8 @@ button{border:none;cursor:pointer;font-family:inherit}
 /* ===== RESPONSIVE: MOBILE (<768px) ===== */
 @media(max-width:767px){
   /* --- 13. 全域 --- */
-  :root{--section-py:32px;--title-gap:20px;--card-gap:16px}
-  body{overflow-x:hidden;padding-bottom:72px}
+  :root{--section-py:24px;--title-gap:12px;--card-gap:10px;--card-radius:10px}
+  body{overflow-x:hidden;padding-bottom:0}
   img{max-width:100%;height:auto}
   .container{padding:0 16px}
   .section-title{font-size:24px;line-height:32px}
@@ -300,7 +300,13 @@ button{border:none;cursor:pointer;font-family:inherit}
 
   /* --- 4. 痛點三卡 --- */
   .pain-grid{grid-template-columns:1fr}
-  .pain-card{padding:24px}
+  .pain-card{padding:16px 14px}
+  .pain-icon{width:48px;height:48px;font-size:24px;border-radius:12px;margin-bottom:12px}
+  .pain-card h3{font-size:17px;margin-bottom:8px}
+  .pain-card p{font-size:14px;margin-bottom:10px}
+  .tool-icon{font-size:28px;margin-bottom:10px}
+  .tool-card h3{font-size:16px;margin-bottom:6px}
+  .tool-card p{font-size:13px}
   .pain-card h3{font-size:18px}
   .pain-card p{font-size:15px;line-height:22px}
   /* 流程圖：2x2 grid，隱藏箭頭 */
@@ -312,13 +318,13 @@ button{border:none;cursor:pointer;font-family:inherit}
   /* --- 5. 功能六宮格 --- */
   .tools-grid{grid-template-columns:1fr}
   .tools-transition{font-size:15px;padding-top:16px;margin-bottom:12px}
-  .tool-card{padding:24px}
+  .tool-card{padding:16px 14px}
   .tool-card h3{font-size:16px}
   .tool-card p{font-size:13px;line-height:20px}
 
   /* --- 6. 數據區 --- */
   .data-stats-row{grid-template-columns:1fr;max-width:100%;gap:12px}
-  .data-stat-card{padding:20px 16px}
+  .data-stat-card{padding:14px 12px}
   .data-stat-card .stat-num{font-size:42px}
   .data-stat-card .stat-label{font-size:14px}
   .data-img-full{max-width:100%}
@@ -348,8 +354,7 @@ button{border:none;cursor:pointer;font-family:inherit}
   .footer-left p{font-size:12px}
 
   /* --- 11. Mobile sticky CTA bar --- */
-  .mobile-sticky-cta{display:block}
-  .mobile-sticky-cta .btn-primary{padding:12px;font-size:16px}
+  .mobile-sticky-cta{display:none}
 
   /* Mid CTA */
   .mid-cta h2{font-size:24px}
