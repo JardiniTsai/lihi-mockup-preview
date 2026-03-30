@@ -177,17 +177,13 @@ button{border:none;cursor:pointer;font-family:inherit}
 .data-section{background:linear-gradient(135deg,var(--dark-bg),var(--dark-bg2));padding:var(--section-py) 0;color:#fff}
 .data-header{text-align:center;margin-bottom:32px}
 .data-header h2{font-size:36px;font-weight:700;color:#fff;margin-bottom:8px}
-.data-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.data-img{border-radius:12px;overflow:hidden;box-shadow:var(--shadow-elevated);border:1px solid rgba(255,255,255,0.1)}
-.data-img img{width:100%;display:block}
-.data-right{display:flex;flex-direction:column;gap:0}
-.data-stat-row{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
-.data-number{font-size:72px;font-weight:700;font-family:'Inter',sans-serif;color:var(--cta-orange);line-height:1}
-.data-subtitle{font-size:18px;font-weight:600;color:var(--text-light)}
-.data-divider{width:60px;height:3px;background:var(--cta-orange);border-radius:2px;margin:16px 0}
-.data-compare{margin-bottom:24px}
-.data-compare p{font-size:15px;line-height:26px;color:rgba(255,255,255,0.7)}
-.data-compare .highlight{color:var(--cta-orange);font-weight:700;font-size:17px}
+.data-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto 40px}
+.data-stat-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:24px;text-align:center}
+.data-stat-card .stat-num{font-size:48px;font-weight:700;font-family:'Inter',sans-serif;color:var(--cta-orange);line-height:1;margin-bottom:8px}
+.data-stat-card .stat-label{font-size:14px;color:rgba(255,255,255,0.7);font-weight:500}
+.data-img-full{max-width:900px;margin:0 auto 32px}
+.data-img-full img{width:100%;display:block;border-radius:12px;border:1px solid rgba(255,255,255,0.1);box-shadow:var(--shadow-elevated)}
+.data-cta-wrap{text-align:center}
 
 /* ===== SECTION: TESTIMONIALS ===== */
 .testimonials{background:#fff;padding:var(--section-py) 0}
@@ -245,7 +241,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 /* ===== RESPONSIVE ===== */
 @media(max-width:1199px){
   .hero-grid{gap:40px}
-  .data-grid{gap:40px}
+  .data-stats-row{gap:16px}
 }
 
 @media(max-width:767px){
@@ -265,8 +261,8 @@ button{border:none;cursor:pointer;font-family:inherit}
   .pain-grid{grid-template-columns:1fr}
   .pain-flow{flex-wrap:wrap;gap:12px}
   .tools-grid{grid-template-columns:1fr}
-  .data-grid{grid-template-columns:1fr}
-  .data-number{font-size:56px}
+  .data-stats-row{grid-template-columns:1fr;max-width:100%}
+  .data-stat-card .stat-num{font-size:36px}
   .test-grid{display:none}
   .test-carousel{display:flex}
   .faq-question{font-size:16px}
@@ -526,23 +522,25 @@ button{border:none;cursor:pointer;font-family:inherit}
     <div class="data-header">
       <h2>數據不說謊</h2>
     </div>
-    <div class="data-layout">
-      <div class="data-img fade-in">
-        <img src="fb-ad-compare.png" alt="Facebook 廣告數據對比 — 品牌網址 vs 一般短網址">
+    <div class="data-stats-row fade-in">
+      <div class="data-stat-card">
+        <div class="stat-num" id="countUp" data-target="32.6">+0%</div>
+        <div class="stat-label">點擊率提升</div>
       </div>
-      <div class="data-right fade-in" style="transition-delay:.15s">
-        <div class="data-stat-row">
-          <div class="data-number" id="countUp" data-target="32.6">+0%</div>
-          <div class="data-subtitle">點擊率<br>提升</div>
-        </div>
-        <div class="data-divider"></div>
-        <div class="data-compare">
-          <p>同樣的廣告費</p>
-          <p>多拿 <span class="highlight">32.6%</span> 的點擊</p>
-          <p class="highlight" style="margin-top:8px">= 多出 30% 的訂單</p>
-        </div>
-        <a href="#final" class="btn-primary">馬上註冊 — 免費使用</a>
+      <div class="data-stat-card">
+        <div class="stat-num">+815</div>
+        <div class="stat-label">多出的點擊次數<br>（同樣 10 萬廣告費）</div>
       </div>
+      <div class="data-stat-card">
+        <div class="stat-num">+30%</div>
+        <div class="stat-label">多出的訂單數</div>
+      </div>
+    </div>
+    <div class="data-img-full fade-in" style="transition-delay:.15s">
+      <img src="fb-ad-compare.png" alt="Facebook 廣告數據對比 — 品牌網址 vs 一般短網址">
+    </div>
+    <div class="data-cta-wrap">
+      <a href="#final" class="btn-primary">馬上註冊 — 免費使用</a>
     </div>
   </div>
 </section>
