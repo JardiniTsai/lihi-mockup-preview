@@ -69,7 +69,13 @@ button{border:none;cursor:pointer;font-family:inherit}
   .fade-in,.slide-right,.slide-left{opacity:1;transform:none;transition:none}
   .marquee-track{animation:none!important}
   .count-up-num{transition:none!important}
+  .growth-line{animation:none!important;stroke-dashoffset:0!important}
 }
+
+/* ===== WAVE DIVIDER ===== */
+.wave-divider{width:100%;line-height:0;overflow:hidden}
+.wave-divider svg{display:block;width:100%;height:48px}
+.wave-divider.flip svg{transform:scaleY(-1)}
 
 /* ===== NAV ===== */
 .nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:16px 0;transition:all .3s ease;background:#fff}
@@ -91,7 +97,15 @@ button{border:none;cursor:pointer;font-family:inherit}
 /* ===== SECTION 1: HERO ===== */
 .hero{background:linear-gradient(160deg,#fff 50%,#FFF0F5 100%);padding:120px 0 var(--section-py);color:var(--text-dark);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,157,0.08) 0%,transparent 70%);pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:6fr 4fr;gap:64px;align-items:center}
+/* Hero decorative elements */
+.hero::after{content:'';position:absolute;bottom:10%;left:5%;width:300px;height:300px;background:radial-gradient(circle,rgba(26,26,94,0.04) 0%,transparent 70%);pointer-events:none;border-radius:50%}
+.hero .deco-dot{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+.hero .deco-dot-1{width:120px;height:120px;background:rgba(255,107,157,0.06);top:15%;right:35%;animation:float-slow 8s ease-in-out infinite}
+.hero .deco-dot-2{width:60px;height:60px;background:rgba(26,26,94,0.05);bottom:20%;left:10%;animation:float-slow 6s ease-in-out infinite reverse}
+.hero .deco-dot-3{width:80px;height:80px;background:rgba(255,107,157,0.04);top:60%;right:8%;animation:float-slow 10s ease-in-out infinite}
+@keyframes float-slow{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+
+.hero-grid{display:grid;grid-template-columns:6fr 4fr;gap:64px;align-items:center;position:relative;z-index:1}
 .hero-title{font-size:48px;line-height:56px;font-weight:700;margin-bottom:24px}
 .hero-bullet-section{margin-bottom:28px}
 .hero-bullets{list-style:none}
@@ -106,7 +120,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 .hero-link{font-size:15px;color:var(--brand-blue);font-weight:500;transition:color .2s;margin-top:12px;display:inline-block}
 .hero-link:hover{color:var(--cta-hover)}
 
-/* Dashboard Mockup */
+/* ===== UPGRADED Dashboard Mockup ===== */
 .dashboard-mockup{perspective:1200px}
 .mockup-browser{background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(26,26,94,0.15),0 4px 12px rgba(0,0,0,0.08);border:1px solid rgba(26,26,94,0.08);transform:rotateY(-8deg) rotateX(4deg);transition:transform .4s ease;overflow:hidden}
 .mockup-browser:hover{transform:rotateY(-3deg) rotateX(2deg)}
@@ -117,20 +131,45 @@ button{border:none;cursor:pointer;font-family:inherit}
 .mockup-dots span:nth-child(2){background:#FFBD2E}
 .mockup-dots span:nth-child(3){background:#27C93F}
 .mockup-url{flex:1;background:#fff;border-radius:6px;padding:6px 12px;font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--text-secondary);margin-left:8px}
-.mockup-body{padding:28px;background:#FAFBFC}
-.mockup-brand-url{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;color:var(--dark-bg);background:#FFF0F5;padding:10px 16px;border-radius:8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
-.mockup-brand-url .lock{color:var(--success);font-size:14px}
-.mockup-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
-.mockup-stat{background:#fff;border-radius:10px;padding:14px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
-.mockup-stat .num{font-size:20px;font-weight:700;font-family:'Inter',sans-serif}
+
+/* New dashboard layout with sidebar */
+.mockup-dashboard{display:flex;min-height:280px}
+.mockup-sidebar{width:52px;background:#1A1A5E;padding:12px 0;display:flex;flex-direction:column;align-items:center;gap:14px;flex-shrink:0}
+.mockup-sidebar .sidebar-logo{width:28px;height:28px;background:var(--brand-pink);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+.mockup-sidebar .sidebar-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;transition:background .2s;color:rgba(255,255,255,0.5)}
+.mockup-sidebar .sidebar-icon:hover,.mockup-sidebar .sidebar-icon.active{background:rgba(255,255,255,0.15);color:#fff}
+.mockup-sidebar .sidebar-icon.active{background:rgba(255,107,157,0.3);color:#fff}
+.mockup-main{flex:1;padding:16px;background:#FAFBFC;overflow:hidden}
+.mockup-main .dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.mockup-main .dash-title{font-size:13px;font-weight:700;color:var(--dark-bg)}
+.mockup-main .dash-period{font-size:10px;color:var(--text-secondary);background:#fff;padding:3px 8px;border-radius:4px;border:1px solid #E5E7EB}
+.mockup-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.mockup-stat{background:#fff;border-radius:8px;padding:10px 8px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.mockup-stat .num{font-size:16px;font-weight:700;font-family:'Inter',sans-serif}
 .mockup-stat .num.green{color:var(--success)}
-.mockup-stat .num.orange{color:var(--cta-orange)}
-.mockup-stat .num.blue{color:var(--brand-blue)}
-.mockup-stat .label{font-size:11px;color:var(--text-secondary);margin-top:4px}
-.mockup-footer-text{font-size:12px;color:var(--text-secondary);text-align:center;padding-top:8px;border-top:1px solid #E5E7EB}
+.mockup-stat .num.orange{color:#F5A623}
+.mockup-stat .num.blue{color:var(--brand-pink)}
+.mockup-stat .label{font-size:9px;color:var(--text-secondary);margin-top:2px}
+
+/* Mini chart in dashboard */
+.dash-chart{background:#fff;border-radius:8px;padding:10px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.dash-chart-title{font-size:10px;color:var(--text-secondary);margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.dash-chart-title span{color:var(--success);font-weight:600}
+.mini-line-chart{display:flex;align-items:flex-end;gap:3px;height:40px;padding:0 2px}
+.mini-line-chart .chart-bar{flex:1;border-radius:2px 2px 0 0;transition:height .3s;min-width:4px}
+
+/* Link list in dashboard */
+.dash-links{background:#fff;border-radius:8px;padding:8px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.dash-link-row{display:flex;align-items:center;gap:8px;padding:5px 4px;border-bottom:1px solid #F1F3F5;font-size:9px}
+.dash-link-row:last-child{border-bottom:none}
+.dash-link-url{flex:1;color:var(--dark-bg);font-family:'JetBrains Mono',monospace;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dash-link-clicks{color:var(--text-secondary);font-family:'Inter',sans-serif}
+.dash-link-ab{display:inline-block;padding:1px 5px;border-radius:3px;font-size:8px;font-weight:600}
+.dash-link-ab.on{background:#DCFCE7;color:#16A34A}
+.dash-link-ab.off{background:#F1F3F5;color:#94A3B8}
 
 /* ===== SECTION: BENEFITS ===== */
-.benefits{background:var(--light-pink);padding:48px 0;text-align:center;color:var(--text-dark)}
+.benefits{background:var(--light-pink);padding:48px 0;text-align:center;color:var(--text-dark);position:relative}
 .benefits h2{font-size:32px;font-weight:700;margin-bottom:24px}
 .benefits-list{display:flex;gap:0;text-align:center}
 .benefit-item{flex:1;padding:20px 16px;border-right:1px solid rgba(26,26,94,0.1)}
@@ -150,7 +189,16 @@ button{border:none;cursor:pointer;font-family:inherit}
 .marquee-item.text-logo{font-size:18px;font-weight:700;color:#888;white-space:nowrap;letter-spacing:1px}
 
 /* ===== SECTION: PAIN POINTS ===== */
-.pain-points{background:var(--light-gray);padding:var(--section-py) 0 24px}
+.pain-points{background:var(--light-gray);padding:var(--section-py) 0 24px;position:relative;overflow:hidden}
+.pain-points::before{content:'';position:absolute;top:10%;right:-5%;width:200px;height:200px;background:radial-gradient(circle,rgba(255,107,157,0.06) 0%,transparent 70%);pointer-events:none;border-radius:50%}
+.pain-points::after{content:'';position:absolute;bottom:5%;left:-3%;width:150px;height:150px;background:radial-gradient(circle,rgba(26,26,94,0.04) 0%,transparent 70%);pointer-events:none;border-radius:50%}
+
+/* Pain layout with illustration */
+.pain-layout{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:start;margin-bottom:32px}
+.pain-illustration{text-align:center;position:sticky;top:120px}
+.pain-illustration img{max-width:240px;margin:0 auto;filter:drop-shadow(0 8px 24px rgba(255,107,157,0.15))}
+.pain-illustration .pain-ill-caption{font-size:14px;color:var(--text-secondary);margin-top:12px;font-weight:500}
+
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--card-gap);margin-bottom:32px}
 .pain-card{background:#fff;border-radius:var(--card-radius);padding:32px;box-shadow:var(--shadow-rest);transition:all .3s ease}
 .pain-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-4px)}
@@ -169,7 +217,8 @@ button{border:none;cursor:pointer;font-family:inherit}
 .circular-arrows{display:none}
 
 /* ===== SECTION: FEATURES ===== */
-.tools-section{background:var(--light-gray);padding:8px 0 var(--section-py)}
+.tools-section{background:var(--light-gray);padding:8px 0 var(--section-py);position:relative;overflow:hidden}
+.tools-section::before{content:'';position:absolute;top:20%;left:-5%;width:250px;height:250px;background:radial-gradient(circle,rgba(255,107,157,0.05) 0%,transparent 70%);pointer-events:none;border-radius:50%}
 .tools-transition{text-align:center;font-size:18px;color:var(--text-secondary);margin-bottom:16px;padding-top:24px}
 .tools-section .section-title{text-align:center}
 .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--card-gap)}
@@ -179,25 +228,95 @@ button{border:none;cursor:pointer;font-family:inherit}
 .tool-card h3{font-size:18px;font-weight:700;margin-bottom:8px}
 .tool-card p{font-size:14px;line-height:22px;color:var(--text-secondary)}
 
+/* Mini product screenshots for tool cards */
+.mini-screenshot{width:100%;height:80px;background:#F8FAFC;border-radius:8px;border:1px solid #E5E7EB;margin-bottom:14px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+/* AB Split mini */
+.mini-ab{display:flex;gap:4px;padding:8px}
+.mini-ab-side{flex:1;background:#fff;border-radius:4px;padding:6px;text-align:center;border:2px solid transparent;font-size:10px;font-weight:700}
+.mini-ab-side.a{border-color:var(--brand-pink);color:var(--brand-pink)}
+.mini-ab-side.b{border-color:var(--dark-bg);color:var(--dark-bg)}
+.mini-ab-bar{width:100%;height:4px;border-radius:2px;margin-top:4px}
+.mini-ab-side.a .mini-ab-bar{background:linear-gradient(90deg,var(--brand-pink) 65%,#eee 65%)}
+.mini-ab-side.b .mini-ab-bar{background:linear-gradient(90deg,var(--dark-bg) 45%,#eee 45%)}
+.mini-ab-pct{font-size:8px;color:var(--text-secondary);margin-top:2px}
+.mini-ab-divider{display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:16px;color:#ccc;gap:2px}
+.mini-ab-divider span{font-size:8px;color:var(--text-secondary)}
+/* QR mini */
+.mini-qr{display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(7,1fr);gap:1px;width:50px;height:50px}
+.mini-qr span{background:#1A1A5E;border-radius:1px}
+.mini-qr span.w{background:transparent}
+/* Domain mini */
+.mini-domain{text-align:center;padding:8px}
+.mini-domain-url{font-family:'JetBrains Mono',monospace;font-size:11px;background:#FFF0F5;padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:4px}
+.mini-domain-url .brand{color:var(--brand-pink);font-weight:700}
+.mini-domain-lock{font-size:10px;color:var(--success)}
+/* Replace link mini */
+.mini-replace{padding:6px 10px;width:100%}
+.mini-replace-row{display:flex;align-items:center;gap:4px;font-size:9px;font-family:'JetBrains Mono',monospace;margin-bottom:3px}
+.mini-replace-old{color:#94A3B8;text-decoration:line-through;flex:1}
+.mini-replace-new{color:var(--success);flex:1;font-weight:600}
+.mini-replace-arrow{color:var(--brand-pink);font-size:12px}
+/* Tracking mini */
+.mini-tracking{padding:6px 8px;width:100%}
+.mini-code{font-family:'JetBrains Mono',monospace;font-size:9px;background:#1A1A5E;color:#E2E8F0;padding:6px 8px;border-radius:4px;line-height:1.5}
+.mini-code .tag{color:var(--brand-pink)}
+.mini-code .attr{color:#F5A623}
+.mini-code .val{color:var(--success)}
+/* Verify mini */
+.mini-verify{display:flex;gap:8px;padding:8px;align-items:center;justify-content:center}
+.mini-badge{display:flex;align-items:center;gap:4px;background:#fff;padding:4px 8px;border-radius:6px;border:1px solid #E5E7EB;font-size:9px;font-weight:600;color:var(--dark-bg)}
+.mini-badge .check{color:var(--success)}
+
 /* ===== SECTION: DATA PROOF ===== */
-.data-section{background:#fff;padding:var(--section-py) 0;color:var(--text-dark)}
+.data-section{background:#fff;padding:var(--section-py) 0;color:var(--text-dark);position:relative;overflow:hidden}
+.data-section::before{content:'';position:absolute;top:0;right:0;width:300px;height:300px;background:radial-gradient(circle,rgba(255,107,157,0.05) 0%,transparent 70%);pointer-events:none}
 .data-header{text-align:center;margin-bottom:32px}
 .data-header h2{font-size:36px;font-weight:700;color:var(--dark-bg);margin-bottom:8px}
 .data-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto 28px}
 .data-stat-card{background:var(--light-pink);border:1px solid rgba(255,107,157,0.2);border-radius:12px;padding:28px 24px;text-align:center}
 .data-stat-card .stat-num{font-size:56px;font-weight:700;font-family:'Inter',sans-serif;color:var(--brand-pink);line-height:1;margin-bottom:8px}
 .data-stat-card .stat-label{font-size:15px;color:var(--text-secondary);font-weight:500}
-.data-img-full{max-width:900px;margin:0 auto 24px}
-.data-img-full img{width:100%;display:block;border-radius:12px;border:1px solid rgba(255,255,255,0.1);box-shadow:var(--shadow-elevated)}
+
+/* Data visual: image + growth curve side by side */
+.data-visual-row{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:900px;margin:0 auto 24px;align-items:center}
+.data-img-full img{width:100%;display:block;border-radius:12px;border:1px solid rgba(0,0,0,0.06);box-shadow:var(--shadow-elevated)}
+/* Growth curve */
+.growth-curve-wrap{background:linear-gradient(135deg,#FFF0F5,#fff);border-radius:12px;padding:24px;border:1px solid rgba(255,107,157,0.15);box-shadow:var(--shadow-rest);position:relative}
+.growth-curve-title{font-size:14px;font-weight:700;color:var(--dark-bg);margin-bottom:4px}
+.growth-curve-sub{font-size:11px;color:var(--text-secondary);margin-bottom:16px}
+.growth-svg{width:100%;height:auto}
+.growth-line{stroke-dasharray:500;stroke-dashoffset:500;animation:draw-line 2s ease forwards}
+.growth-line.visible{animation:draw-line 2s ease forwards}
+@keyframes draw-line{to{stroke-dashoffset:0}}
+.growth-dot{opacity:0;animation:pop-in .3s ease forwards}
+.growth-dot:nth-child(2){animation-delay:.8s}
+.growth-dot:nth-child(3){animation-delay:1.2s}
+.growth-dot:nth-child(4){animation-delay:1.6s}
+@keyframes pop-in{to{opacity:1}}
+.growth-label{font-size:10px;fill:var(--text-secondary);font-family:'Inter',sans-serif}
+.growth-value{font-size:11px;fill:var(--dark-bg);font-weight:700;font-family:'Inter',sans-serif}
+
 .data-cta-wrap{text-align:center}
 
 /* ===== SECTION: TESTIMONIALS ===== */
-.testimonials{background:#fff;padding:var(--section-py) 0}
+.testimonials{background:#fff;padding:var(--section-py) 0;position:relative;overflow:hidden}
+.testimonials::before{content:'';position:absolute;top:5%;left:-3%;width:180px;height:180px;background:radial-gradient(circle,rgba(255,107,157,0.05) 0%,transparent 70%);pointer-events:none;border-radius:50%}
 .testimonials .section-desc{text-align:center;font-size:18px;color:var(--text-secondary);margin-top:-4px;margin-bottom:var(--title-gap)}
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--card-gap)}
-.test-card{background:#fff;border-radius:var(--card-radius);overflow:hidden;box-shadow:var(--shadow-rest);transition:all .3s ease}
+.test-card{background:#fff;border-radius:var(--card-radius);overflow:hidden;box-shadow:var(--shadow-rest);transition:all .3s ease;position:relative}
 .test-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
 .test-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
+/* Testimonial quote decoration + avatar */
+.test-card-meta{padding:16px 20px;display:flex;align-items:center;gap:12px}
+.test-avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff}
+.test-avatar.av1{background:linear-gradient(135deg,#FF6B9D,#FF8FB4)}
+.test-avatar.av2{background:linear-gradient(135deg,#1A1A5E,#3A3A8E)}
+.test-avatar.av3{background:linear-gradient(135deg,#F5A623,#F7BD5C)}
+.test-meta-text{flex:1}
+.test-name{font-size:14px;font-weight:700;color:var(--dark-bg)}
+.test-company{font-size:12px;color:var(--text-secondary)}
+.test-quote-mark{position:absolute;top:8px;left:16px;font-size:48px;color:rgba(255,107,157,0.15);font-family:Georgia,serif;line-height:1;pointer-events:none;z-index:1}
 
 /* Mobile carousel */
 .test-carousel-wrap{display:none;position:relative}
@@ -215,7 +334,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 .mid-cta .subtitle{font-size:16px;color:var(--text-secondary);margin-bottom:20px}
 
 /* ===== SECTION: FAQ ===== */
-.faq-section{background:var(--light-gray);padding:32px 0 var(--section-py)}
+.faq-section{background:var(--light-gray);padding:32px 0 var(--section-py);position:relative}
 .faq-section .section-title{text-align:center}
 .faq-list{max-width:800px;margin:0 auto}
 .faq-item{border-bottom:1px solid #E5E7EB}
@@ -227,7 +346,8 @@ button{border:none;cursor:pointer;font-family:inherit}
 .faq-answer-inner{padding:0 0 20px;font-size:16px;line-height:1.6;color:var(--text-secondary)}
 
 /* ===== SECTION: FINAL CTA ===== */
-.final-cta{background:linear-gradient(135deg,#1A1A5E,#2A2A7E);padding:var(--section-py) 0;text-align:center;color:#fff}
+.final-cta{background:linear-gradient(135deg,#1A1A5E,#2A2A7E);padding:var(--section-py) 0;text-align:center;color:#fff;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(255,107,157,0.1) 0%,transparent 70%);pointer-events:none}
 .final-cta h2{font-size:36px;font-weight:700;margin-bottom:16px}
 .final-cta .subtitle{font-size:18px;color:var(--text-light);margin-bottom:36px}
 .final-cta .btn-primary{font-size:20px;padding:20px 48px}
@@ -254,13 +374,19 @@ button{border:none;cursor:pointer;font-family:inherit}
   .hero-grid{gap:40px;grid-template-columns:1fr 1fr}
   .hero-title{font-size:36px;line-height:44px}
   .data-stats-row{gap:16px}
+  .data-visual-row{grid-template-columns:1fr;max-width:600px}
   .tools-grid{grid-template-columns:repeat(2,1fr)}
   .test-grid{grid-template-columns:repeat(2,1fr)}
   .test-grid .test-card:nth-child(3){grid-column:span 2;max-width:50%;margin:0 auto}
+  .pain-layout{grid-template-columns:1fr;gap:20px}
+  .pain-illustration{position:static}
+  .pain-illustration img{max-width:160px}
   .pain-grid{grid-template-columns:repeat(2,1fr)}
   .pain-grid .pain-card:nth-child(3){grid-column:span 2;max-width:50%;margin:0 auto}
   .benefits-list{flex-wrap:wrap;justify-content:center}
   .benefit-item{flex:none;width:33.33%}
+  .mockup-sidebar{width:44px}
+  .mockup-dashboard{min-height:240px}
 }
 
 /* ===== RESPONSIVE: MOBILE (<768px) ===== */
@@ -271,6 +397,7 @@ button{border:none;cursor:pointer;font-family:inherit}
   img{max-width:100%;height:auto}
   .container{padding:0 16px}
   .section-title{font-size:24px;line-height:32px}
+  .wave-divider svg{height:28px}
 
   /* --- 12. Nav --- */
   .nav-links{display:none!important}
@@ -283,6 +410,7 @@ button{border:none;cursor:pointer;font-family:inherit}
   .hero-title{font-size:28px;line-height:36px}
   .hero-bullet-section{display:grid;grid-template-columns:1fr 155px;gap:8px;align-items:center;margin-bottom:20px}
   .hero-bullets li{font-size:14px;margin-bottom:8px}
+  .hero .deco-dot{display:none}
   .mobile-dash-card{display:block;background:#fff;border-radius:8px;box-shadow:0 6px 20px rgba(26,26,94,0.14);border:1px solid rgba(26,26,94,0.08);overflow:hidden;transform:rotate(-2deg);max-width:155px}
   .mdc-toolbar{background:#F1F3F5;padding:3px 8px;display:flex;align-items:center;gap:4px;border-bottom:1px solid #E5E7EB}
   .mdc-dots{display:flex;gap:3px}
@@ -340,6 +468,9 @@ button{border:none;cursor:pointer;font-family:inherit}
   .marquee-track{gap:28px}
 
   /* --- 4. 痛點三卡 --- */
+  .pain-layout{grid-template-columns:1fr;gap:16px}
+  .pain-illustration{position:static;margin-bottom:8px}
+  .pain-illustration img{max-width:160px}
   .pain-grid{grid-template-columns:1fr}
   .pain-sub{margin-top:4px!important;margin-bottom:16px!important;font-size:14px!important}
   .pain-card{padding:16px 14px}
@@ -374,21 +505,30 @@ button{border:none;cursor:pointer;font-family:inherit}
   .tool-card{padding:16px 14px}
   .tool-card h3{font-size:16px}
   .tool-card p{font-size:13px;line-height:20px}
+  .mini-screenshot{height:60px;margin-bottom:10px}
+  .mini-ab-side{font-size:9px;padding:4px}
+  .mini-code{font-size:8px;padding:4px 6px}
 
   /* --- 6. 數據區 --- */
   .data-stats-row{grid-template-columns:1fr;max-width:100%;gap:12px}
   .data-stat-card{padding:14px 12px}
   .data-stat-card .stat-num{font-size:42px}
   .data-stat-card .stat-label{font-size:14px}
-  .data-img-full{max-width:100%}
+  .data-visual-row{grid-template-columns:1fr;max-width:100%;gap:16px}
   .data-img-full img{width:100%;border-radius:8px}
   .data-header h2{font-size:28px}
+  .growth-curve-wrap{padding:16px}
 
   /* --- 7. 見證區 --- */
   .test-grid{display:none!important}
   .test-carousel-wrap{display:block}
   .test-carousel{padding:0 16px 8px}
   .test-carousel .test-card{min-width:80vw;width:80vw}
+  .test-card-meta{padding:12px 14px}
+  .test-avatar{width:32px;height:32px;font-size:13px}
+  .test-name{font-size:13px}
+  .test-company{font-size:11px}
+  .test-quote-mark{font-size:36px;top:4px;left:10px}
 
   /* --- 8. FAQ --- */
   .faq-question{font-size:15px;padding:16px 0}
@@ -446,6 +586,10 @@ button{border:none;cursor:pointer;font-family:inherit}
 
 <!-- ===== SECTION 1: HERO ===== -->
 <section class="hero" id="hero">
+  <!-- Decorative dots -->
+  <div class="deco-dot deco-dot-1"></div>
+  <div class="deco-dot deco-dot-2"></div>
+  <div class="deco-dot deco-dot-3"></div>
   <div class="container">
     <div class="hero-grid">
       <div class="hero-left">
@@ -490,31 +634,75 @@ button{border:none;cursor:pointer;font-family:inherit}
           <div class="mockup-browser">
             <div class="mockup-toolbar">
               <div class="mockup-dots"><span></span><span></span><span></span></div>
-              <div class="mockup-url">🔒 yourbrand.com/新品上市</div>
+              <div class="mockup-url">🔒 app.lihi.io/dashboard</div>
             </div>
-            <div class="mockup-body">
-              <div class="mockup-brand-url">
-                <span class="lock">🔒</span>
-                <span>你的品牌短網址</span>
+            <!-- Upgraded dashboard with sidebar -->
+            <div class="mockup-dashboard">
+              <div class="mockup-sidebar">
+                <div class="sidebar-logo">L</div>
+                <div class="sidebar-icon active" title="總覽">📊</div>
+                <div class="sidebar-icon" title="連結">🔗</div>
+                <div class="sidebar-icon" title="分流">🔀</div>
+                <div class="sidebar-icon" title="QR Code">📱</div>
+                <div class="sidebar-icon" title="設定">⚙️</div>
               </div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;color:var(--dark-bg);background:#FFF0F5;padding:10px 16px;border-radius:8px;margin-bottom:20px;text-align:center">
-                <span style="color:var(--brand-pink)">yourbrand.com</span>/新品上市
+              <div class="mockup-main">
+                <div class="dash-header">
+                  <div class="dash-title">📈 總覽 Dashboard</div>
+                  <div class="dash-period">最近 7 天 ▾</div>
+                </div>
+                <div class="mockup-stats">
+                  <div class="mockup-stat">
+                    <div class="num green">12,847</div>
+                    <div class="label">總點擊</div>
+                  </div>
+                  <div class="mockup-stat">
+                    <div class="num orange">+32.6%</div>
+                    <div class="label">成長率</div>
+                  </div>
+                  <div class="mockup-stat">
+                    <div class="num blue">156</div>
+                    <div class="label">活躍連結</div>
+                  </div>
+                </div>
+                <!-- Mini line chart -->
+                <div class="dash-chart">
+                  <div class="dash-chart-title">
+                    <span style="color:var(--dark-bg)">每日點擊趨勢</span>
+                    <span>↑ 25.3%</span>
+                  </div>
+                  <div class="mini-line-chart">
+                    <div class="chart-bar" style="height:35%;background:rgba(255,107,157,0.3)"></div>
+                    <div class="chart-bar" style="height:50%;background:rgba(255,107,157,0.4)"></div>
+                    <div class="chart-bar" style="height:42%;background:rgba(255,107,157,0.35)"></div>
+                    <div class="chart-bar" style="height:65%;background:rgba(255,107,157,0.5)"></div>
+                    <div class="chart-bar" style="height:55%;background:rgba(255,107,157,0.45)"></div>
+                    <div class="chart-bar" style="height:72%;background:rgba(255,107,157,0.6)"></div>
+                    <div class="chart-bar" style="height:68%;background:rgba(255,107,157,0.55)"></div>
+                    <div class="chart-bar" style="height:85%;background:rgba(255,107,157,0.7)"></div>
+                    <div class="chart-bar" style="height:78%;background:rgba(255,107,157,0.65)"></div>
+                    <div class="chart-bar" style="height:100%;background:var(--brand-pink)"></div>
+                  </div>
+                </div>
+                <!-- Link list -->
+                <div class="dash-links">
+                  <div class="dash-link-row">
+                    <div class="dash-link-url">brand.com/新品上市</div>
+                    <div class="dash-link-ab on">A/B ON</div>
+                    <div class="dash-link-clicks">3,241</div>
+                  </div>
+                  <div class="dash-link-row">
+                    <div class="dash-link-url">brand.com/週年慶</div>
+                    <div class="dash-link-ab on">A/B ON</div>
+                    <div class="dash-link-clicks">2,108</div>
+                  </div>
+                  <div class="dash-link-row">
+                    <div class="dash-link-url">brand.com/KOL合作</div>
+                    <div class="dash-link-ab off">—</div>
+                    <div class="dash-link-clicks">1,847</div>
+                  </div>
+                </div>
               </div>
-              <div class="mockup-stats">
-                <div class="mockup-stat">
-                  <div class="num green">+25%</div>
-                  <div class="label">點擊率提升</div>
-                </div>
-                <div class="mockup-stat">
-                  <div class="num orange">35%</div>
-                  <div class="label">廣告費節省</div>
-                </div>
-                <div class="mockup-stat">
-                  <div class="num blue">2×</div>
-                  <div class="label">測試效率</div>
-                </div>
-              </div>
-              <div class="mockup-footer-text">已有 5,000+ 品牌使用 lihi 建立品牌網域</div>
             </div>
           </div>
         </div>
@@ -522,6 +710,13 @@ button{border:none;cursor:pointer;font-family:inherit}
     </div>
   </div>
 </section>
+
+<!-- Wave divider: hero → benefits -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,16 C360,48 1080,0 1440,32 L1440,48 L0,48 Z" fill="#FFE8F0"/>
+  </svg>
+</div>
 
 <!-- ===== SECTION 2: 五大好處 ===== -->
 <section class="benefits">
@@ -586,27 +781,44 @@ button{border:none;cursor:pointer;font-family:inherit}
   </div>
 </section>
 
+<!-- Wave divider: trust → pain -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,32 C480,0 960,48 1440,16 L1440,48 L0,48 Z" fill="#FFF5F8"/>
+  </svg>
+</div>
+
 <!-- ===== SECTION 4: PAIN POINTS ===== -->
 <section class="pain-points" id="pain">
   <div class="container">
     <div class="section-subtitle center">為什麼選擇 lihi</div>
     <h2 class="section-title center">數位行銷的痛，我們很懂</h2>
     <p class="pain-sub" style="text-align:center;font-size:16px;color:var(--text-secondary);margin-top:-8px;margin-bottom:var(--title-gap)">品牌電商天天面對的三大困境，lihi 幫你一次解決</p>
-    <div class="pain-grid">
-      <div class="pain-card fade-in">
-        <div class="pain-icon">📊</div>
-        <h3>廣告優化無從下手</h3>
-        <p>改圖片還是文案？只能猜，浪費預算</p>
+
+    <!-- Pain layout: illustration + cards -->
+    <div class="pain-layout">
+      <div class="pain-illustration fade-in">
+        <img src="https://lihidev.com/assets/images/question-sign.png" alt="行銷困境">
+        <div class="pain-ill-caption">每天都在猜？讓數據告訴你答案</div>
       </div>
-      <div class="pain-card fade-in" style="transition-delay:.1s">
-        <div class="pain-icon">📢</div>
-        <h3>KOL 導流難以量化</h3>
-        <p>找網紅代言，業績從哪來根本不清楚</p>
-      </div>
-      <div class="pain-card fade-in" style="transition-delay:.2s">
-        <div class="pain-icon">⏱️</div>
-        <h3>A/B 測試曠日廢時</h3>
-        <p>測試週期太長，看不出哪個頁面真的比較好</p>
+      <div>
+        <div class="pain-grid">
+          <div class="pain-card fade-in">
+            <div class="pain-icon">📊</div>
+            <h3>廣告優化無從下手</h3>
+            <p>改圖片還是文案？只能猜，浪費預算</p>
+          </div>
+          <div class="pain-card fade-in" style="transition-delay:.1s">
+            <div class="pain-icon">📢</div>
+            <h3>KOL 導流難以量化</h3>
+            <p>找網紅代言，業績從哪來根本不清楚</p>
+          </div>
+          <div class="pain-card fade-in" style="transition-delay:.2s">
+            <div class="pain-icon">⏱️</div>
+            <h3>A/B 測試曠日廢時</h3>
+            <p>測試週期太長，看不出哪個頁面真的比較好</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -639,15 +851,10 @@ button{border:none;cursor:pointer;font-family:inherit}
           <marker id="ah3" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 7 2.5, 0 5" fill="#FF6B9D"/></marker>
           <marker id="ah4" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 7 2.5, 0 5" fill="#DC2626"/></marker>
         </defs>
-        <!-- 困惑→假設錯誤 (top-right arc) -->
         <path d="M168,55 Q210,40 220,95" stroke="#FF6B9D" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ah1)"/>
-        <!-- 假設錯誤→繼續嘗試 (right-bottom arc) -->
         <path d="M220,152 Q210,200 168,190" stroke="#1A1A5E" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ah2)"/>
-        <!-- 繼續嘗試→還是失敗 (bottom-left arc) -->
         <path d="M92,190 Q50,200 40,152" stroke="#FF6B9D" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ah3)"/>
-        <!-- 還是失敗→困惑 (left-top arc) -->
         <path d="M40,95 Q50,40 92,55" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ah4)"/>
-        <!-- 中心循環 icon -->
         <text x="130" y="128" text-anchor="middle" font-size="24" fill="#FF6B9D" opacity="0.35">🔄</text>
       </svg>
     </div>
@@ -659,32 +866,99 @@ button{border:none;cursor:pointer;font-family:inherit}
   <div class="container">
     <p class="tools-transition">品牌網域配上 lihi 短網址的優點⋯⋯<strong>你可以做到更多</strong></p>
     <div class="tools-grid">
+      <!-- 1. 自訂網域 -->
       <div class="tool-card fade-in">
+        <div class="mini-screenshot">
+          <div class="mini-domain">
+            <div class="mini-domain-lock">🔒 HTTPS</div>
+            <div class="mini-domain-url"><span class="brand">YourBrand.com</span>/新品上市</div>
+            <div style="font-size:8px;color:var(--text-secondary);margin-top:2px">→ 品牌專屬短網址</div>
+          </div>
+        </div>
         <div class="tool-icon">🌐</div>
         <h3>自訂網域</h3>
         <p>打造專屬品牌短網址，提升點擊信任度，讓品牌形象延伸到每一條連結。</p>
       </div>
+      <!-- 2. 自動分流 -->
       <div class="tool-card fade-in" style="transition-delay:.1s">
+        <div class="mini-screenshot">
+          <div class="mini-ab">
+            <div class="mini-ab-side a">
+              <div>A 版</div>
+              <div class="mini-ab-bar"></div>
+              <div class="mini-ab-pct">65%</div>
+            </div>
+            <div class="mini-ab-divider">
+              <span>VS</span>
+            </div>
+            <div class="mini-ab-side b">
+              <div>B 版</div>
+              <div class="mini-ab-bar"></div>
+              <div class="mini-ab-pct">35%</div>
+            </div>
+          </div>
+        </div>
         <div class="tool-icon">🔀</div>
         <h3>自動分流</h3>
         <p>流量自動分配至多個目標頁面，同一瀏覽器只見同一頁面，確保測試數據精準。</p>
       </div>
+      <!-- 3. QR Code -->
       <div class="tool-card fade-in" style="transition-delay:.15s">
+        <div class="mini-screenshot">
+          <div class="mini-qr">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span class="w"></span><span class="w"></span><span class="w"></span><span class="w"></span><span class="w"></span><span></span>
+            <span></span><span class="w"></span><span></span><span></span><span></span><span class="w"></span><span></span>
+            <span></span><span class="w"></span><span></span><span class="w"></span><span></span><span class="w"></span><span></span>
+            <span></span><span class="w"></span><span></span><span></span><span></span><span class="w"></span><span></span>
+            <span></span><span class="w"></span><span class="w"></span><span class="w"></span><span class="w"></span><span class="w"></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
         <div class="tool-icon">📱</div>
         <h3>QR Code 產生器</h3>
         <p>把連結、WiFi 設定、電話、圖片都變成 QR Code，而且隨時可替換目的地。</p>
       </div>
+      <!-- 4. 連結置換 -->
       <div class="tool-card fade-in" style="transition-delay:.2s">
+        <div class="mini-screenshot">
+          <div class="mini-replace">
+            <div class="mini-replace-row">
+              <span class="mini-replace-old">brand.com/舊活動</span>
+              <span class="mini-replace-arrow">→</span>
+              <span class="mini-replace-new">brand.com/新活動 ✓</span>
+            </div>
+            <div style="font-size:8px;color:var(--text-secondary);text-align:center;margin-top:4px">短網址不變，目的地即時更換</div>
+          </div>
+        </div>
         <div class="tool-icon">🔄</div>
         <h3>連結置換</h3>
         <p>廣告已投放不必重做，直接從後台替換目標連結，素材文案完全不用動。</p>
       </div>
+      <!-- 5. 流量追蹤 -->
       <div class="tool-card fade-in" style="transition-delay:.25s">
+        <div class="mini-screenshot">
+          <div class="mini-tracking">
+            <div class="mini-code">
+              <span class="tag">&lt;script&gt;</span><br>
+              <span class="attr"> gtag</span>(<span class="val">'config'</span>,<span class="val">'GA-XXX'</span>);<br>
+              <span class="attr"> fbq</span>(<span class="val">'track'</span>,<span class="val">'PageView'</span>);<br>
+              <span class="tag">&lt;/script&gt;</span>
+            </div>
+          </div>
+        </div>
         <div class="tool-icon">📊</div>
         <h3>流量追蹤 + 自訂參數</h3>
         <p>一次設定 GA、Pixel、GTM 等追蹤碼，自訂參數與追蹤變數，精準分析每個渠道的來源成效與 ROI。</p>
       </div>
+      <!-- 6. 平台認證 -->
       <div class="tool-card fade-in" style="transition-delay:.3s">
+        <div class="mini-screenshot">
+          <div class="mini-verify">
+            <div class="mini-badge"><span class="check">✓</span> Meta 認證</div>
+            <div class="mini-badge"><span class="check">✓</span> Google 認證</div>
+          </div>
+        </div>
         <div class="tool-icon">✅</div>
         <h3>可跟各大平台認證</h3>
         <p>Meta 企業管理員、Google Search Console，驗證後減少被封鎖的風險。</p>
@@ -692,6 +966,13 @@ button{border:none;cursor:pointer;font-family:inherit}
     </div>
   </div>
 </section>
+
+<!-- Wave divider: tools → data -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,24 C240,48 720,0 1200,32 C1320,40 1440,24 1440,24 L1440,48 L0,48 Z" fill="#ffffff"/>
+  </svg>
+</div>
 
 <!-- ===== SECTION 6: DATA PROOF ===== -->
 <section class="data-section" id="data">
@@ -713,14 +994,73 @@ button{border:none;cursor:pointer;font-family:inherit}
         <div class="stat-label">多出的訂單數</div>
       </div>
     </div>
-    <div class="data-img-full fade-in" style="transition-delay:.15s">
-      <img src="fb-ad-compare.png" alt="Facebook 廣告數據對比 — 品牌網址 vs 一般短網址">
+    <!-- Image + Growth Curve side by side -->
+    <div class="data-visual-row fade-in" style="transition-delay:.15s">
+      <div class="data-img-full">
+        <img src="fb-ad-compare.png" alt="Facebook 廣告數據對比 — 品牌網址 vs 一般短網址">
+      </div>
+      <div class="growth-curve-wrap">
+        <div class="growth-curve-title">品牌網域帶來的成長</div>
+        <div class="growth-curve-sub">使用 lihi 品牌網域後的點擊率變化</div>
+        <svg class="growth-svg" viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+          <!-- Grid lines -->
+          <line x1="40" y1="20" x2="40" y2="130" stroke="#E5E7EB" stroke-width="0.5"/>
+          <line x1="40" y1="130" x2="270" y2="130" stroke="#E5E7EB" stroke-width="0.5"/>
+          <line x1="40" y1="100" x2="270" y2="100" stroke="#E5E7EB" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <line x1="40" y1="70" x2="270" y2="70" stroke="#E5E7EB" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <line x1="40" y1="40" x2="270" y2="40" stroke="#E5E7EB" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <!-- Y-axis labels -->
+          <text x="35" y="133" text-anchor="end" class="growth-label">0%</text>
+          <text x="35" y="103" text-anchor="end" class="growth-label">+10%</text>
+          <text x="35" y="73" text-anchor="end" class="growth-label">+20%</text>
+          <text x="35" y="43" text-anchor="end" class="growth-label">+30%</text>
+          <!-- X-axis labels -->
+          <text x="55" y="145" text-anchor="middle" class="growth-label">第1週</text>
+          <text x="120" y="145" text-anchor="middle" class="growth-label">第2週</text>
+          <text x="190" y="145" text-anchor="middle" class="growth-label">第3週</text>
+          <text x="255" y="145" text-anchor="middle" class="growth-label">第4週</text>
+          <!-- Area fill -->
+          <path d="M55,125 C85,118 100,105 120,95 C145,82 165,65 190,52 C215,42 240,35 255,30 L255,130 L55,130 Z" fill="url(#growthGrad)" opacity="0.3"/>
+          <defs>
+            <linearGradient id="growthGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FF6B9D"/>
+              <stop offset="100%" stop-color="#FF6B9D" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <!-- Growth line -->
+          <path class="growth-line" d="M55,125 C85,118 100,105 120,95 C145,82 165,65 190,52 C215,42 240,35 255,30" stroke="#FF6B9D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Data points -->
+          <g class="growth-dot">
+            <circle cx="55" cy="125" r="4" fill="#fff" stroke="#FF6B9D" stroke-width="2"/>
+            <text x="55" y="118" text-anchor="middle" class="growth-value">+1.8%</text>
+          </g>
+          <g class="growth-dot">
+            <circle cx="120" cy="95" r="4" fill="#fff" stroke="#FF6B9D" stroke-width="2"/>
+            <text x="120" y="88" text-anchor="middle" class="growth-value">+11.7%</text>
+          </g>
+          <g class="growth-dot">
+            <circle cx="190" cy="52" r="4" fill="#fff" stroke="#FF6B9D" stroke-width="2"/>
+            <text x="190" y="45" text-anchor="middle" class="growth-value">+26.0%</text>
+          </g>
+          <g class="growth-dot">
+            <circle cx="255" cy="30" r="5" fill="#FF6B9D" stroke="#fff" stroke-width="2"/>
+            <text x="255" y="23" text-anchor="middle" class="growth-value" style="fill:#FF6B9D;font-size:12px">+32.6%</text>
+          </g>
+        </svg>
+      </div>
     </div>
     <div class="data-cta-wrap">
       <a href="#final" class="btn-primary">馬上註冊 — 免費使用</a>
     </div>
   </div>
 </section>
+
+<!-- Wave divider: data → testimonials -->
+<div class="wave-divider flip" style="margin-top:-1px">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,16 C360,48 1080,0 1440,32 L1440,48 L0,48 Z" fill="#ffffff"/>
+  </svg>
+</div>
 
 <!-- ===== SECTION 7: TESTIMONIALS ===== -->
 <section class="testimonials" id="testimonials">
@@ -730,13 +1070,37 @@ button{border:none;cursor:pointer;font-family:inherit}
     <p class="section-desc">來自百萬品牌電商的親身體驗</p>
     <div class="test-grid">
       <div class="test-card fade-in">
+        <div class="test-quote-mark">「</div>
         <img src="https://lihidev.com/lp-menu/img/review1.png" alt="品牌主回饋 1">
+        <div class="test-card-meta">
+          <div class="test-avatar av1">A</div>
+          <div class="test-meta-text">
+            <div class="test-name">品牌主 A</div>
+            <div class="test-company">美妝電商｜月營收 500 萬+</div>
+          </div>
+        </div>
       </div>
       <div class="test-card fade-in" style="transition-delay:.1s">
+        <div class="test-quote-mark">「</div>
         <img src="https://lihidev.com/lp-menu/img/review2.png" alt="品牌主回饋 2">
+        <div class="test-card-meta">
+          <div class="test-avatar av2">B</div>
+          <div class="test-meta-text">
+            <div class="test-name">品牌主 B</div>
+            <div class="test-company">食品電商｜年度成長 120%</div>
+          </div>
+        </div>
       </div>
       <div class="test-card fade-in" style="transition-delay:.2s">
+        <div class="test-quote-mark">「</div>
         <img src="https://lihidev.com/lp-menu/img/review3.png" alt="品牌主回饋 3">
+        <div class="test-card-meta">
+          <div class="test-avatar av3">C</div>
+          <div class="test-meta-text">
+            <div class="test-name">品牌主 C</div>
+            <div class="test-company">服飾品牌｜廣告 ROAS 4.2</div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Mobile carousel -->
@@ -747,13 +1111,37 @@ button{border:none;cursor:pointer;font-family:inherit}
       </div>
       <div class="test-carousel" id="testCarousel">
         <div class="test-card">
+          <div class="test-quote-mark">「</div>
           <img src="https://lihidev.com/lp-menu/img/review1.png" alt="品牌主回饋 1">
+          <div class="test-card-meta">
+            <div class="test-avatar av1">A</div>
+            <div class="test-meta-text">
+              <div class="test-name">品牌主 A</div>
+              <div class="test-company">美妝電商｜月營收 500 萬+</div>
+            </div>
+          </div>
         </div>
         <div class="test-card">
+          <div class="test-quote-mark">「</div>
           <img src="https://lihidev.com/lp-menu/img/review2.png" alt="品牌主回饋 2">
+          <div class="test-card-meta">
+            <div class="test-avatar av2">B</div>
+            <div class="test-meta-text">
+              <div class="test-name">品牌主 B</div>
+              <div class="test-company">食品電商｜年度成長 120%</div>
+            </div>
+          </div>
         </div>
         <div class="test-card">
+          <div class="test-quote-mark">「</div>
           <img src="https://lihidev.com/lp-menu/img/review3.png" alt="品牌主回饋 3">
+          <div class="test-card-meta">
+            <div class="test-avatar av3">C</div>
+            <div class="test-meta-text">
+              <div class="test-name">品牌主 C</div>
+              <div class="test-company">服飾品牌｜廣告 ROAS 4.2</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -792,6 +1180,13 @@ button{border:none;cursor:pointer;font-family:inherit}
     </div>
   </div>
 </section>
+
+<!-- Wave divider: faq → final cta -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,32 C480,0 960,48 1440,16 L1440,48 L0,48 Z" fill="#1A1A5E"/>
+  </svg>
+</div>
 
 <!-- ===== SECTION 10: FINAL CTA ===== -->
 <section class="final-cta" id="final">
@@ -900,11 +1295,27 @@ button{border:none;cursor:pointer;font-family:inherit}
       });
     }, { threshold: 0.3 });
     countObserver.observe(countEl);
+
+    // ===== GROWTH LINE ANIMATION =====
+    const growthLine = document.querySelector('.growth-line');
+    if (growthLine) {
+      const growthObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            growthLine.style.animation = 'draw-line 2s ease forwards';
+            growthObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      growthObserver.observe(growthLine);
+    }
   } else {
     document.querySelectorAll('.fade-in, .slide-right, .slide-left').forEach(function(el) {
       el.classList.add('visible');
     });
     document.getElementById('countUp').textContent = '+32.6%';
+    var gl = document.querySelector('.growth-line');
+    if (gl) gl.style.strokeDashoffset = '0';
   }
 
   function animateCount(el, start, end, duration) {
