@@ -196,9 +196,14 @@ button{border:none;cursor:pointer;font-family:inherit}
 .test-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
 
 /* Mobile carousel */
-.test-carousel{display:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:0 24px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.test-carousel-wrap{display:none;position:relative}
+.test-carousel{overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 24px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex}
 .test-carousel::-webkit-scrollbar{display:none}
-.test-carousel .test-card{min-width:320px;scroll-snap-align:start;flex-shrink:0}
+.test-carousel .test-card{min-width:320px;scroll-snap-align:start;flex-shrink:0;border:1px solid rgba(26,26,94,0.08)}
+.carousel-hint{display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 0 0;font-size:13px;color:var(--text-secondary)}
+.carousel-dots{display:flex;gap:6px;justify-content:center;padding:12px 0 0}
+.carousel-dots span{width:8px;height:8px;border-radius:50%;background:rgba(26,26,94,0.15)}
+.carousel-dots span.active{background:var(--brand-pink);width:20px;border-radius:4px}
 
 /* ===== SECTION: MID CTA ===== */
 .mid-cta{background:var(--light-gray);padding:32px 0;text-align:center}
@@ -334,8 +339,9 @@ button{border:none;cursor:pointer;font-family:inherit}
 
   /* --- 7. 見證區 --- */
   .test-grid{display:none!important}
-  .test-carousel{display:flex;padding:0 16px 16px}
-  .test-carousel .test-card{min-width:85vw;width:85vw}
+  .test-carousel-wrap{display:block}
+  .test-carousel{padding:0 16px 8px}
+  .test-carousel .test-card{min-width:80vw;width:80vw}
 
   /* --- 8. FAQ --- */
   .faq-question{font-size:15px;padding:16px 0}
@@ -644,16 +650,22 @@ button{border:none;cursor:pointer;font-family:inherit}
       </div>
     </div>
     <!-- Mobile carousel -->
-    <div class="test-carousel">
-      <div class="test-card">
-        <img src="https://lihidev.com/lp-menu/img/review1.png" alt="品牌主回饋 1">
+    <div class="test-carousel-wrap">
+      <div class="test-carousel" id="testCarousel">
+        <div class="test-card">
+          <img src="https://lihidev.com/lp-menu/img/review1.png" alt="品牌主回饋 1">
+        </div>
+        <div class="test-card">
+          <img src="https://lihidev.com/lp-menu/img/review2.png" alt="品牌主回饋 2">
+        </div>
+        <div class="test-card">
+          <img src="https://lihidev.com/lp-menu/img/review3.png" alt="品牌主回饋 3">
+        </div>
       </div>
-      <div class="test-card">
-        <img src="https://lihidev.com/lp-menu/img/review2.png" alt="品牌主回饋 2">
+      <div class="carousel-dots" id="carouselDots">
+        <span class="active"></span><span></span><span></span>
       </div>
-      <div class="test-card">
-        <img src="https://lihidev.com/lp-menu/img/review3.png" alt="品牌主回饋 3">
-      </div>
+      <div class="carousel-hint">← 左右滑動查看更多 →</div>
     </div>
   </div>
 </section>
@@ -816,6 +828,21 @@ button{border:none;cursor:pointer;font-family:inherit}
       if (progress < 1) requestAnimationFrame(update);
     }
     requestAnimationFrame(update);
+  }
+
+  // ===== CAROUSEL DOTS =====
+  var carousel = document.getElementById('testCarousel');
+  var dots = document.querySelectorAll('#carouselDots span');
+  if (carousel && dots.length) {
+    carousel.addEventListener('scroll', function() {
+      var scrollLeft = carousel.scrollLeft;
+      var cardWidth = carousel.querySelector('.test-card').offsetWidth + 12;
+      var idx = Math.round(scrollLeft / cardWidth);
+      idx = Math.min(idx, dots.length - 1);
+      dots.forEach(function(d, i) {
+        d.className = i === idx ? 'active' : '';
+      });
+    }, { passive: true });
   }
 
   // ===== FAQ ACCORDION =====
